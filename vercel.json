@@ -1,0 +1,1 @@
+{"rewrites":[{"source":"/api/(.*)","destination":"/api/$1"},{"source":"/success","destination":"/success.html"},{"source":"/admin","destination":"/admin.html"},{"source":"/(.*)","destination":"/index.html"}]}
