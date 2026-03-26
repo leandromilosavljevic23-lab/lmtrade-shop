@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Zahlung erfolgreich — LM Trade</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#060a12;color:#e2e8f0;font-family:'Outfit',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% -20%,rgba(0,208,132,.08),transparent);pointer-events:none}
+@keyframes bounce{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.card{max-width:460px;width:100%;background:#0f1520;border:1px solid rgba(0,208,132,.3);border-radius:24px;padding:52px 40px;text-align:center;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00d084,#00b8d9)}
+.icon{font-size:64px;margin-bottom:24px;animation:bounce 1.5s ease infinite}
+h1{font-size:28px;font-weight:800;color:#fff;margin-bottom:12px}
+p{color:#64748b;line-height:1.7;margin-bottom:6px}
+.em{color:#00d084;font-weight:600}
+.btn{display:inline-block;background:linear-gradient(135deg,#00d084,#00b8d9);color:#fff;text-decoration:none;padding:16px 36px;border-radius:10px;font-weight:700;font-size:16px;margin-top:32px}
+.note{margin-top:20px;font-size:13px;color:#334155}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="icon">🎉</div>
+  <h1>Zahlung bestaetigt!</h1>
+  <p>Deine Zahlung wurde erfolgreich verarbeitet.</p>
+  <p>Deine Zugangsdaten kommen in wenigen Minuten an:<br><span class="em" id="em"></span></p>
+  <p style="margin-top:10px;font-size:13px">Schau auch in deinen Spam-Ordner.</p>
+  <a href="https://trade-ai-dashboard.vercel.app" class="btn">Zum Dashboard &rarr;</a>
+  <p class="note">Fragen? Antworte auf die Bestaetigung-Email.</p>
+</div>
+<script>
+const p=new URLSearchParams(window.location.search);
+const e=p.get('email');
+if(e)document.getElementById('em').textContent=e;
+</script>
+</body>
+</html>
