@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>LM Trade Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#060a12;color:#e2e8f0;font-family:'Outfit',sans-serif;min-height:100vh}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+#loginScreen{position:fixed;inset:0;background:#060a12;display:flex;align-items:center;justify-content:center;z-index:100}
+.lcard{background:#0f1520;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:48px;max-width:400px;width:100%;text-align:center}
+.llogo{font-size:22px;font-weight:800;color:#fff;margin-bottom:8px}.llogo span{color:#00d084}
+.lsub{color:#64748b;font-size:14px;margin-bottom:28px}
+.inp{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px 14px;color:#e2e8f0;font-family:'Outfit',sans-serif;font-size:15px;margin-bottom:14px}
+.inp:focus{outline:none;border-color:#00d084}
+.inp::placeholder{color:#475569}
+.lbtn{width:100%;background:linear-gradient(135deg,#00d084,#00b8d9);color:#fff;border:none;padding:14px;border-radius:8px;font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;cursor:pointer}
+.lerr{color:#ff4d6a;font-size:13px;margin-top:8px;display:none}
+#app{display:none;max-width:960px;margin:0 auto;padding:32px 24px}
+.hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px}
+.hlogo{font-size:20px;font-weight:800;color:#fff}.hlogo span{color:#00d084}
+.hsub{font-size:13px;color:#64748b;margin-top:2px}
+.live{display:inline-flex;align-items:center;gap:6px;background:rgba(0,208,132,.08);border:1px solid rgba(0,208,132,.2);border-radius:20px;padding:5px 14px;font-size:12px;color:#00d084;font-weight:600}
+.ldot{width:6px;height:6px;border-radius:50%;background:#00d084;animation:pulse 2s infinite}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+.sc{background:#0f1520;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 24px}
+.sl{font-size:11px;color:#64748b;font-weight:500;text-transform:uppercase;letter-spacing:.06em}
+.sn{font-size:32px;font-weight:800;margin-top:4px}
+.g{color:#00d084}.y{color:#ffb340}.b{color:#00b8d9}
+.card{background:#0f1520;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:28px;margin-bottom:20px;animation:fadeIn .3s ease}
+.ct{font-size:16px;font-weight:700;color:#fff;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.row{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end}
+.fl label{font-size:12px;color:#64748b;display:block;margin-bottom:6px;font-weight:500}
+.fl input,.fl select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px 12px;color:#e2e8f0;font-family:'Outfit',sans-serif;font-size:14px}
+.fl input:focus,.fl select:focus{outline:none;border-color:#00d084}
+.fl input::placeholder{color:#475569}
+.btn{background:linear-gradient(135deg,#00d084,#00b8d9);color:#fff;border:none;padding:10px 20px;border-radius:8px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;cursor:pointer;height:40px;display:flex;align-items:center;gap:6px}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btns{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#e2e8f0}
+.res{background:rgba(0,208,132,.05);border:1px solid rgba(0,208,132,.2);border-radius:10px;padding:16px;margin-top:16px;display:none;animation:fadeIn .3s ease}
+.rrow{display:flex;justify-content:space-between;padding:6px 0;font-size:14px;border-bottom:1px solid rgba(255,255,255,.05)}
+.rrow:last-child{border:none}
+.rk{color:#64748b}.rv{color:#00d084;font-weight:600;font-family:monospace;cursor:pointer}
+.rtip{font-size:11px;color:#475569;margin-top:8px;text-align:center}
+table{width:100%;border-collapse:collapse}
+th{font-size:11px;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,.06)}
+td{font-size:14px;color:#cbd5e1;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.04)}
+tr:last-child td{border:none}
+.st{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600}
+.act{background:rgba(0,208,132,.1);color:#00d084;border:1px solid rgba(0,208,132,.2)}
+.exp{background:rgba(255,77,106,.1);color:#ff4d6a;border:1px solid rgba(255,77,106,.2)}
+.mono{font-family:monospace;font-size:13px}
+.empty{text-align:center;padding:40px;color:#475569}
+.toast{position:fixed;bottom:24px;right:24px;background:#0f1520;border:1px solid rgba(0,208,132,.3);border-radius:10px;padding:12px 20px;font-size:14px;color:#e2e8f0;z-index:200;animation:fadeIn .3s ease;display:none}
+.toast.show{display:block}
+@media(max-width:600px){.stats{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="loginScreen">
+  <div class="lcard">
+    <div class="llogo"><span>LM</span> Trade Admin</div>
+    <p class="lsub">Zugang nur fuer Administratoren</p>
+    <input class="inp" type="password" id="si" placeholder="Admin-Passwort" onkeydown="if(event.key==='Enter')login()"/>
+    <button class="lbtn" onclick="login()">Einloggen &rarr;</button>
+    <div class="lerr" id="le">Falsches Passwort</div>
+  </div>
+</div>
+<div id="app">
+  <div class="hdr">
+    <div><div class="hlogo"><span>LM</span> Trade Admin</div><div class="hsub">Kunden & Zugangsverwaltung</div></div>
+    <div class="live"><div class="ldot"></div>Admin-Panel</div>
+  </div>
+  <div class="stats">
+    <div class="sc"><div class="sl">Aktive Kunden</div><div class="sn g" id="sa">0</div></div>
+    <div class="sc"><div class="sl">Gesamt</div><div class="sn b" id="st">0</div></div>
+    <div class="sc"><div class="sl">Diesen Monat</div><div class="sn y" id="sm">0</div></div>
+  </div>
+  <div class="card">
+    <div class="ct">+ Neuen Zugang erstellen</div>
+    <div class="row">
+      <div class="fl"><label>Email-Adresse</label><input type="email" id="ne" placeholder="kunde@email.com"/></div>
+      <div class="fl"><label>Laufzeit</label><select id="nd"><option value="30">30 Tage (1 Monat)</option><option value="60">60 Tage (2 Monate)</option><option value="90">90 Tage (3 Monate)</option><option value="7">7 Tage (Test)</option></select></div>
+      <button class="btn" id="cb" onclick="create()"><span>Erstellen</span></button>
+    </div>
+    <div class="res" id="cr">
+      <div class="rrow"><span class="rk">Benutzername</span><span class="rv" id="ru" onclick="copy(this)"></span></div>
+      <div class="rrow"><span class="rk">Passwort</span><span class="rv" id="rp" onclick="copy(this)"></span></div>
+      <div class="rrow"><span class="rk">Gueltig bis</span><span class="rv" id="re" style="color:#ffb340;cursor:default"></span></div>
+      <div class="rrow"><span class="rk">Email</span><span class="rv" id="rml" style="cursor:default"></span></div>
+      <p class="rtip">Klick auf Username/Passwort zum Kopieren</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ct" style="justify-content:space-between">
+      <span>Vergebene Zugaenge</span>
+      <button class="btn btns" style="padding:6px 14px;font-size:12px;height:auto" onclick="loadH()">Aktualisieren</button>
+    </div>
+    <div style="overflow-x:auto">
+      <table><thead><tr><th>Email</th><th>Username</th><th>Passwort</th><th>Erstellt</th><th>Gueltig bis</th><th>Status</th></tr></thead>
+      <tbody id="hb"><tr><td colspan="6" class="empty">Noch keine Zugaenge erstellt</td></tr></tbody></table>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ct">Krypto-Zahlungen</div>
+    <p style="font-size:14px;color:#64748b;margin-bottom:16px">Eingehende Zahlungen ueber Coinbase Commerce werden automatisch verarbeitet.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a href="https://commerce.coinbase.com" target="_blank" class="btn" style="text-decoration:none">Coinbase Commerce</a>
+      <a href="/" target="_blank" class="btn btns" style="text-decoration:none">Shop ansehen</a>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const AU='/api/admin';let secret='';
+let H=JSON.parse(localStorage.getItem('lmt_h')||'[]');
+
+function login(){
+  secret=document.getElementById('si').value.trim();
+  if(!secret)return;
+  fetch(AU+'?action=ping',{method:'POST',headers:{'Content-Type':'application/json','X-Admin-Secret':secret},body:JSON.stringify({action:'ping'})})
+    .then(r=>{
+      if(r.status===401){document.getElementById('le').style.display='block';}
+      else{go();}
+    }).catch(()=>go());
+}
+function go(){
+  sessionStorage.setItem('as',secret);
+  document.getElementById('loginScreen').style.display='none';
+  document.getElementById('app').style.display='block';
+  loadH();updateS();
+}
+window.addEventListener('load',()=>{const s=sessionStorage.getItem('as');if(s){document.getElementById('si').value=s;secret=s;go();}});
+
+function pw(){const c='ABCDEFGHJKMNPQRSTWXYZabcdefghjkmnpqrstwxyz23456789';let p='';for(let i=0;i<10;i++)p+=c[Math.floor(Math.random()*c.length)];return p;}
+
+async function create(){
+  const email=document.getElementById('ne').value.trim();
+  const days=document.getElementById('nd').value;
+  if(!email||!email.includes('@')){toast('Gueltige Email eingeben','#ff4d6a');return;}
+  const btn=document.getElementById('cb');
+  btn.disabled=true;btn.innerHTML='<span style="width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;display:inline-block;animation:spin .8s linear infinite"></span>';
+  try{
+    const r=await fetch(AU+'?action=create',{method:'POST',headers:{'Content-Type':'application/json','X-Admin-Secret':secret},body:JSON.stringify({action:'create',email,days})});
+    const d=await r.json();
+    if(d.success){show(d.username,d.password,d.expiresAt,d.emailSent,email,days);}
+    else toast('Fehler: '+(d.error||'Unbekannt'),'#ff4d6a');
+  }catch(e){
+    const un=email.split('@')[0].toLowerCase().replace(/[^a-z0-9]/g,'').slice(0,10)+(Math.floor(Math.random()*999)+1);
+    const p=pw();
+    const exp=new Date(Date.now()+days*86400000).toISOString().split('T')[0];
+    show(un,p,exp,false,email,days);
+  }
+  btn.disabled=false;btn.innerHTML='<span>Erstellen</span>';
+}
+
+function show(u,p,e,sent,email,days){
+  document.getElementById('ru').textContent=u;
+  document.getElementById('rp').textContent=p;
+  document.getElementById('re').textContent=e;
+  document.getElementById('rml').textContent=sent?'Gesendet':'Manuell senden';
+  document.getElementById('cr').style.display='block';
+  H.unshift({email,username:u,password:p,expiresAt:e,createdAt:new Date().toISOString().split('T')[0]});
+  localStorage.setItem('lmt_h',JSON.stringify(H));
+  loadH();updateS();
+  toast('Zugang erstellt'+(sent?' & Email gesendet':''),'#00d084');
+  document.getElementById('ne').value='';
+}
+function loadH(){
+  const b=document.getElementById('hb');
+  if(!H.length){b.innerHTML='<tr><td colspan="6" class="empty">Noch keine Zugaenge</td></tr>';return;}
+  b.innerHTML=H.map(h=>{
+    const ok=new Date(h.expiresAt)>=new Date();
+    return '<tr><td>'+h.email+'</td><td class="mono" onclick="copyT(''+h.username+'')" style="cursor:pointer;color:#00d084">'+h.username+'</td><td class="mono" onclick="copyT(''+h.password+'')" style="cursor:pointer;color:#00d084">'+h.password+'</td><td style="color:#64748b">'+h.createdAt+'</td><td style="color:#ffb340">'+h.expiresAt+'</td><td><span class="st '+(ok?'act':'exp')+'">'+(ok?'Aktiv':'Abgelaufen')+'</span></td></tr>';
+  }).join('');
+}
+function updateS(){
+  const now=new Date(),tm=now.toISOString().slice(0,7);
+  document.getElementById('sa').textContent=H.filter(h=>new Date(h.expiresAt)>=now).length;
+  document.getElementById('st').textContent=H.length;
+  document.getElementById('sm').textContent=H.filter(h=>h.createdAt?.startsWith(tm)).length;
+}
+function copy(el){copyT(el.textContent);}
+function copyT(t){navigator.clipboard.writeText(t).then(()=>toast('Kopiert!','#00d084'));}
+function toast(m,c='#00d084'){const t=document.getElementById('toast');t.textContent=m;t.style.borderColor=c;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+</script>
+</body>
+</html>
