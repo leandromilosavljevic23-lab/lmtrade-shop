@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>LM Trade Admin</title>
+<title>AI Trade Board Admin</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -136,7 +136,7 @@ function go(){
 }
 window.addEventListener('load',()=>{const s=sessionStorage.getItem('as');if(s){document.getElementById('si').value=s;secret=s;go();}});
 
-function pw(){const c='ABCDEFGHJKMNPQRSTWXYZabcdefghjkmnpqrstwxyz23456789';let p='';for(let i=0;i<10;i++)p+=c[Math.floor(Math.random()*c.length)];return p;}
+function pw(){const c='CuachkNStJHuk3UVkCtnAPn7CpLTsMtsoo8hLVDR4Cn7456789';let p='';for(let i=0;i<10;i++)p+=c[Math.floor(Math.random()*c.length)];return p;}
 
 async function create(){
   const email=document.getElementById('ne').value.trim();
