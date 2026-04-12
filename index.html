@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
 <title>AI Trade Board — Trade Smarter with Real AI Analysis</title>
-<meta name="description" content="Professional AI market intelligence for Gold, NAS100, EUR/USD & more. Daily briefings, Deep Dive analysis, Economic Calendar & Trading Journal. Not signals — intelligence.">
-<meta name="keywords" content="AI trading, market intelligence, forex AI, gold analysis, nasdaq AI, trading journal, economic calendar, deep dive 2026">
+<meta name="description" content="Professional AI market intelligence for Gold, NAS100, EUR/USD & more. Daily briefings, Deep Dive, Calendar & Journal. Not signals — intelligence.">
+<meta name="keywords" content="AI trading, market intelligence, forex AI, gold analysis, nasdaq, trading journal, deep dive 2026">
 <meta property="og:title" content="AI Trade Board — Trade Smarter with AI">
-<meta property="og:description" content="6 assets. Daily AI briefings. Deep Dive. Not signals — intelligence.">
+<meta property="og:description" content="6 assets. Daily AI briefings. Deep Dive. Join on Telegram.">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="X-Frame-Options" content="DENY">
-<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"AI Trade Board","applicationCategory":"FinanceApplication","offers":[{"@type":"Offer","price":"29.99","priceCurrency":"USD"},{"@type":"Offer","price":"300","priceCurrency":"USD"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"127"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"AI Trade Board","applicationCategory":"FinanceApplication","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"127"}}</script>
 <style>
 :root{
   --g:#00d084;--gd:#00a86b;--gdim:rgba(0,208,132,.10);
+  --tg:#229ED9;--tgd:#1a7fb5;
   --bg:#060d18;--bg2:#0a1525;--bg3:#0f1e35;
   --card:rgba(10,21,37,.96);
   --br:rgba(0,208,132,.16);--br2:rgba(255,255,255,.07);
@@ -30,281 +30,277 @@
 html{scroll-behavior:smooth}
 body{font-family:var(--ff);background:var(--bg);color:var(--tx);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
 
-/* ══ NAV ══ */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 32px;height:62px;
-  background:rgba(6,13,24,.92);backdrop-filter:blur(24px);
-  border-bottom:1px solid var(--br2)}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo svg{width:34px;height:34px;border-radius:8px;flex-shrink:0}
-.logo-txt{font-family:var(--fh);font-size:17px;font-weight:800;white-space:nowrap}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:60px;background:rgba(6,13,24,.93);backdrop-filter:blur(24px);border-bottom:1px solid var(--br2)}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0}
+.logo svg{width:32px;height:32px;border-radius:8px;flex-shrink:0}
+.logo-txt{font-family:var(--fh);font-size:16px;font-weight:800;white-space:nowrap;line-height:1}
 .logo-txt .w{color:#fff}.logo-txt .g{color:#00d084}
-.nav-mid{display:flex;align-items:center;gap:26px}
-.nav-mid a{font-size:14px;font-weight:500;color:var(--tx2);text-decoration:none;transition:color .2s}
+.nav-mid{display:flex;align-items:center;gap:22px;flex:1;justify-content:center}
+.nav-mid a{font-size:13px;font-weight:500;color:var(--tx2);text-decoration:none;transition:color .2s;white-space:nowrap}
 .nav-mid a:hover{color:var(--g)}
-/* Right side: lang toggle + CTA — no overlap */
-.nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.lang-sw{display:flex;background:rgba(255,255,255,.05);border:1px solid var(--br2);border-radius:20px;padding:3px;gap:2px;flex-shrink:0}
-.lang-sw button{font-family:var(--ff);font-size:11px;font-weight:600;background:none;border:none;color:var(--tx2);padding:5px 11px;border-radius:16px;cursor:pointer;transition:all .18s;white-space:nowrap}
+.nav-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.lang-sw{display:flex;background:rgba(255,255,255,.05);border:1px solid var(--br2);border-radius:20px;padding:3px;gap:1px;flex-shrink:0}
+.lang-sw button{font-family:var(--ff);font-size:11px;font-weight:600;background:none;border:none;color:var(--tx2);padding:4px 10px;border-radius:16px;cursor:pointer;transition:all .18s;white-space:nowrap}
 .lang-sw button.on{background:var(--g);color:#000;font-weight:700}
-.nav-cta{font-family:var(--ff);font-size:13px;font-weight:700;background:var(--g);color:#000;padding:9px 18px;border-radius:8px;border:none;cursor:pointer;transition:all .2s;white-space:nowrap;animation:pulse 2.4s infinite}
-.nav-cta:hover{background:var(--gd);transform:translateY(-1px)}
+.tg-nav-btn{display:flex;align-items:center;gap:6px;font-family:var(--ff);font-size:12px;font-weight:700;background:var(--tg);color:#fff;padding:7px 14px;border-radius:8px;border:none;cursor:pointer;text-decoration:none;white-space:nowrap;transition:all .2s}
+.tg-nav-btn:hover{background:var(--tgd);transform:translateY(-1px)}
+.tg-nav-btn svg{width:16px;height:16px;fill:#fff;flex-shrink:0}
 .ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
 .ham span{width:20px;height:2px;background:var(--tx2);border-radius:2px;display:block}
 
 /* Mobile menu */
-.mob{display:none;position:fixed;top:62px;left:0;right:0;z-index:998;
-  background:var(--bg2);border-bottom:1px solid var(--br2);
-  padding:20px 24px;flex-direction:column;gap:0}
+.mob{display:none;position:fixed;top:60px;left:0;right:0;z-index:998;background:var(--bg2);border-bottom:1px solid var(--br2);padding:18px 22px;flex-direction:column;gap:0}
 .mob.open{display:flex}
-.mob-lang{display:flex;gap:8px;padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid var(--br2)}
-.mob-lang button{font-family:var(--ff);font-size:13px;font-weight:700;padding:8px 18px;border-radius:20px;border:1px solid var(--br2);background:none;color:var(--tx2);cursor:pointer;transition:all .2s}
+.mob-lang{display:flex;gap:7px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--br2)}
+.mob-lang button{font-family:var(--ff);font-size:13px;font-weight:700;padding:7px 16px;border-radius:20px;border:1px solid var(--br2);background:none;color:var(--tx2);cursor:pointer;transition:all .2s}
 .mob-lang button.on{background:var(--g);color:#000;border-color:var(--g)}
-.mob a{font-size:15px;font-weight:500;color:var(--tx2);text-decoration:none;padding:12px 0;border-bottom:1px solid var(--br2);display:block}
-.mob a:last-child{border:none}
-.mob-cta{margin-top:16px;width:100%;padding:14px;background:var(--g);color:#000;font-family:var(--ff);font-size:15px;font-weight:700;border:none;border-radius:9px;cursor:pointer}
+.mob a{font-size:14px;font-weight:500;color:var(--tx2);text-decoration:none;padding:11px 0;border-bottom:1px solid var(--br2);display:block}
+.mob a:last-of-type{border-bottom:none}
+.mob-tg{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;width:100%;padding:13px;background:var(--tg);color:#fff;font-family:var(--ff);font-size:14px;font-weight:700;border:none;border-radius:9px;cursor:pointer;text-decoration:none}
 
-/* ══ HERO ══ */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 20px 72px;position:relative;overflow:hidden}
-.hbg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% -5%,rgba(0,208,132,.09),transparent 68%)}
-.hgrid{position:absolute;inset:0;background-image:linear-gradient(var(--br2) 1px,transparent 1px),linear-gradient(90deg,var(--br2) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,black,transparent 74%)}
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:96px 18px 68px;position:relative;overflow:hidden}
+.hbg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% -5%,rgba(0,208,132,.09),transparent 68%);pointer-events:none}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(var(--br2) 1px,transparent 1px),linear-gradient(90deg,var(--br2) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,black,transparent 74%);pointer-events:none}
 .z1{position:relative;z-index:1}
-.chip{display:inline-flex;align-items:center;gap:7px;background:var(--gdim);border:1px solid var(--br);border-radius:20px;padding:7px 16px;font-size:13px;font-weight:600;color:var(--g);margin-bottom:24px;animation:up .55s ease both}
-.hero h1{font-family:var(--fh);font-weight:800;font-size:clamp(34px,5vw,68px);line-height:1.06;letter-spacing:-.5px;margin-bottom:18px;animation:up .55s .08s ease both}
+.chip{display:inline-flex;align-items:center;gap:7px;background:var(--gdim);border:1px solid var(--br);border-radius:20px;padding:7px 16px;font-size:13px;font-weight:600;color:var(--g);margin-bottom:22px;animation:up .55s ease both}
+.hero h1{font-family:var(--fh);font-weight:800;font-size:clamp(32px,5vw,66px);line-height:1.06;letter-spacing:-.5px;margin-bottom:16px;animation:up .55s .08s ease both}
 .hero h1 em{color:var(--g);font-style:normal}
-.hero-sub{font-size:clamp(15px,1.7vw,18px);color:var(--tx2);max-width:600px;margin:0 auto 12px;line-height:1.76;animation:up .55s .15s ease both}
-.social-proof{font-size:12px;color:var(--tx2);margin-bottom:28px;animation:up .55s .2s ease both}
+.hero-sub{font-size:clamp(14px,1.6vw,17px);color:var(--tx2);max-width:580px;margin:0 auto 10px;line-height:1.76;animation:up .55s .14s ease both}
+.social-proof{font-size:12px;color:var(--tx2);margin-bottom:24px;animation:up .55s .18s ease both}
 .social-proof span{color:var(--g);font-weight:700}
-.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;animation:up .55s .25s ease both}
-.bp{font-family:var(--ff);font-size:15px;font-weight:700;background:linear-gradient(135deg,var(--g),var(--gd));color:#000;padding:14px 30px;border-radius:9px;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:all .28s;border:none;cursor:pointer}
-.bp:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(0,208,132,.26)}
-.bs{font-family:var(--ff);font-size:15px;font-weight:600;background:transparent;color:var(--tx);padding:14px 30px;border-radius:9px;text-decoration:none;display:inline-flex;align-items:center;gap:7px;border:1px solid var(--br2);transition:all .28s}
-.bs:hover{border-color:var(--g);color:var(--g)}
-.hstats{display:flex;gap:40px;justify-content:center;margin-top:44px;flex-wrap:wrap;animation:up .55s .32s ease both}
-.sn{font-family:var(--fh);font-weight:800;font-size:28px;color:var(--g);letter-spacing:-.3px}
-.sl{font-size:12px;color:var(--tx2);margin-top:3px}
-.disc{font-size:11px;color:var(--tx3);margin-top:12px}
 
-/* ══ DASHBOARD FRAME ══ */
-.dash-wrap{margin:56px auto 0;max-width:1020px;width:100%;position:relative;z-index:1;animation:up .9s .4s ease both}
+/* TELEGRAM HERO CTA — the big one */
+.tg-hero-cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--tg),var(--tgd));color:#fff;padding:16px 36px;border-radius:12px;font-family:var(--ff);font-size:16px;font-weight:700;text-decoration:none;transition:all .3s;border:none;cursor:pointer;animation:up .55s .22s ease both;box-shadow:0 8px 32px rgba(34,158,217,.35)}
+.tg-hero-cta:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(34,158,217,.45)}
+.tg-hero-cta svg{width:22px;height:22px;fill:#fff;flex-shrink:0}
+.tg-sub-link{display:block;margin-top:12px;font-size:13px;color:var(--tx2);text-decoration:none;animation:up .55s .26s ease both}
+.tg-sub-link:hover{color:var(--g)}
+.tg-sub-link span{color:var(--g)}
+.hstats{display:flex;gap:36px;justify-content:center;margin-top:40px;flex-wrap:wrap;animation:up .55s .3s ease both}
+.sn{font-family:var(--fh);font-weight:800;font-size:26px;color:var(--g);letter-spacing:-.3px}
+.sl{font-size:12px;color:var(--tx2);margin-top:2px}
+.disc{font-size:11px;color:var(--tx3);margin-top:12px;animation:up .55s .34s ease both}
+
+/* Dashboard frame */
+.dash-wrap{margin:52px auto 0;max-width:1000px;width:100%;position:relative;z-index:1;animation:up .9s .4s ease both}
 .dash-glow{position:absolute;inset:-2px;border-radius:16px;background:linear-gradient(135deg,rgba(0,208,132,.22),transparent 55%,rgba(0,208,132,.08));z-index:0;pointer-events:none}
 .dash-frame{position:relative;z-index:1;background:var(--bg2);border-radius:14px;overflow:hidden;border:1px solid var(--br);box-shadow:0 40px 80px rgba(0,0,0,.5)}
-.dash-bar{background:var(--bg3);padding:10px 16px;display:flex;align-items:center;gap:7px;border-bottom:1px solid var(--br2)}
-.dot{width:10px;height:10px;border-radius:50%}
+.dash-bar{background:var(--bg3);padding:9px 15px;display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--br2)}
+.dot{width:9px;height:9px;border-radius:50%}
 .dot.r{background:#ef4444}.dot.y{background:#f59e0b}.dot.g2{background:#22c55e}
-.dash-url{flex:1;background:rgba(0,0,0,.3);border-radius:5px;padding:4px 12px;font-size:11px;color:var(--tx3);margin:0 12px;text-align:center;font-family:monospace}
-.live-badge{font-size:10px;font-weight:700;color:var(--g);background:var(--gdim);padding:3px 9px;border-radius:10px;border:1px solid var(--br);display:flex;align-items:center;gap:4px}
-.live-dot{width:6px;height:6px;background:var(--g);border-radius:50%;animation:blink 1.4s infinite}
-
-/* Dashboard inner replica — exact match to real dashboard */
-.di{padding:16px}
-.dtr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px}
-.dlogo{display:flex;align-items:center;gap:8px}
-.dlogo svg{width:26px;height:26px;border-radius:6px}
-.dlogo-nm{font-family:var(--fh);font-size:14px;font-weight:800}
+.dash-url{flex:1;background:rgba(0,0,0,.3);border-radius:5px;padding:4px 11px;font-size:10px;color:var(--tx3);margin:0 10px;text-align:center;font-family:monospace}
+.live-b{font-size:9px;font-weight:700;color:var(--g);background:var(--gdim);padding:3px 8px;border-radius:9px;border:1px solid var(--br);display:flex;align-items:center;gap:3px}
+.live-d{width:5px;height:5px;background:var(--g);border-radius:50%;animation:blink 1.4s infinite}
+.di{padding:14px}
+/* Dashboard toprow */
+.dtr{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.dlogo{display:flex;align-items:center;gap:7px}
+.dlogo svg{width:24px;height:24px;border-radius:5px}
+.dlogo-nm{font-family:var(--fh);font-size:13px;font-weight:800}
 .dlogo-nm .w{color:#fff}.dlogo-nm .g{color:#00d084}
-.dwelcome{font-size:11px;color:var(--tx2)}.dwelcome b{color:var(--g)}
-.dlp{display:flex;background:var(--bg3);border:1px solid var(--br2);border-radius:14px;padding:2px}
-.dlp span{font-size:10px;font-weight:700;padding:4px 11px;border-radius:11px}
+.dwelc{font-size:10px;color:var(--tx2)}.dwelc b{color:var(--g)}
+.dlp{display:flex;background:var(--bg3);border:1px solid var(--br2);border-radius:13px;padding:2px}
+.dlp span{font-size:9px;font-weight:700;padding:3px 9px;border-radius:10px}
 .dlp .on{background:var(--g);color:#000}.dlp .off{color:var(--tx2)}
-.dbtn{font-family:var(--ff);font-size:12px;font-weight:700;background:linear-gradient(135deg,var(--g),var(--gd));color:#000;padding:7px 14px;border-radius:7px;border:none}
+.dbtn{font-family:var(--ff);font-size:11px;font-weight:700;background:linear-gradient(135deg,var(--g),var(--gd));color:#000;padding:6px 12px;border-radius:6px;border:none;margin-left:auto}
 /* Sentiment */
-.sent{background:var(--bg3);border:1px solid var(--br2);border-radius:10px;padding:11px 13px;margin-bottom:11px}
-.sr{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
-.sb{font-size:9px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.15);padding:2px 9px;border-radius:20px}
-.etag{font-size:9px;color:var(--g);background:var(--gdim);border:1px solid var(--br);padding:2px 7px;border-radius:20px}
-.stxt{font-size:11px;color:var(--tx2)}
-/* Macro row */
-.mr{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:11px}
-.mb3{background:var(--bg3);border:1px solid var(--br2);border-radius:8px;padding:10px}
-.ml3{font-size:10px;font-weight:700;color:var(--tx2);margin-bottom:3px}
-.mv3{font-size:17px;font-weight:700;line-height:1}
-.mv3.r{color:var(--red)}.mv3.g{color:var(--g)}.mv3.b{color:var(--blue)}.mv3.gold{color:var(--gold)}
-.ms3{font-size:9px;color:var(--tx2);margin-top:2px;line-height:1.3}
+.sent{background:var(--bg3);border:1px solid var(--br2);border-radius:9px;padding:10px 12px;margin-bottom:10px}
+.sr{display:flex;align-items:center;gap:7px;margin-bottom:5px;flex-wrap:wrap}
+.sbdg{font-size:9px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.15);padding:2px 8px;border-radius:20px}
+.etag{font-size:8px;color:var(--g);background:var(--gdim);border:1px solid var(--br);padding:2px 6px;border-radius:20px}
+.stxt{font-size:10px;color:var(--tx2)}
+/* Macro */
+.mr{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px}
+.mb3{background:var(--bg3);border:1px solid var(--br2);border-radius:7px;padding:9px}
+.ml3{font-size:9px;font-weight:700;color:var(--tx2);margin-bottom:2px}
+.mv3{font-size:16px;font-weight:700;line-height:1}
+.mv3.r{color:var(--red)}.mv3.g{color:var(--g)}.mv3.b{color:var(--blue)}.mv3.go{color:var(--gold)}
+.ms3{font-size:9px;color:var(--tx2);margin-top:2px}
 /* Asset cards */
-.acr{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.ac2{background:var(--bg3);border:1px solid var(--br2);border-radius:9px;padding:11px;position:relative;overflow:hidden}
+.acr{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.ac2{background:var(--bg3);border:1px solid var(--br2);border-radius:9px;padding:10px;position:relative;overflow:hidden}
 .ac2::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
 .ac2.bull::before{background:linear-gradient(90deg,var(--g),transparent)}
 .ac2.bear::before{background:linear-gradient(90deg,var(--red),transparent)}
 .ac2.watch::before{background:linear-gradient(90deg,var(--gold),transparent)}
-.ach{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.acn2{font-weight:700;font-size:13px}
-.acn2.gc{color:var(--gold)}.acn2.nc{color:var(--pur)}.acn2.ec{color:var(--blue)}
-.acb2{font-size:8px;font-weight:700;padding:2px 6px;border-radius:20px}
+.ach{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.acn{font-weight:700;font-size:13px}
+.acn.gc{color:var(--gold)}.acn.nc{color:var(--pur)}.acn.ec{color:var(--blue)}
+.acb{font-size:8px;font-weight:700;padding:2px 6px;border-radius:20px}
 .bull-b{background:rgba(0,208,132,.15);color:var(--g)}.bear-b{background:rgba(239,68,68,.15);color:var(--red)}.watch-b{background:rgba(245,158,11,.15);color:var(--gold)}
-.acp2{font-size:17px;font-weight:700;margin-bottom:5px}
-.actf2{display:flex;gap:3px;margin-bottom:5px}
-.tf2{font-size:8px;font-weight:700;padding:2px 5px;border-radius:3px;background:var(--bg2)}
-.tf2.b{color:var(--g)}.tf2.r{color:var(--red)}.tf2.n{color:var(--tx2)}
-.acai2{background:rgba(0,208,132,.04);border:1px solid rgba(0,208,132,.1);border-radius:6px;padding:6px;font-size:9px;color:var(--tx2);line-height:1.5;margin-top:5px}
+.acp{font-size:16px;font-weight:700;margin-bottom:4px}
+.actf{display:flex;gap:3px;margin-bottom:5px}
+.tf{font-size:8px;font-weight:700;padding:2px 5px;border-radius:3px;background:var(--bg2)}
+.tf.b{color:var(--g)}.tf.r{color:var(--red)}.tf.n{color:var(--tx2)}
+.acai{background:rgba(0,208,132,.04);border:1px solid rgba(0,208,132,.1);border-radius:6px;padding:6px;font-size:9px;color:var(--tx2);line-height:1.5;margin-top:4px}
 .acail{font-size:8px;font-weight:700;color:var(--g);letter-spacing:.3px;margin-bottom:2px}
-
-/* Feature mini panels */
-.feat-panels{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-.fp{border-radius:9px;overflow:hidden;border:1px solid var(--br2);background:var(--bg3)}
+/* Feature panels */
+.fpanel-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.fp{border-radius:8px;overflow:hidden;border:1px solid var(--br2);background:var(--bg3)}
 .fp-bar{background:var(--bg2);padding:6px 10px;display:flex;align-items:center;gap:4px;border-bottom:1px solid var(--br2)}
 .fp-dot{width:6px;height:6px;border-radius:50%}
-.fp-lbl{flex:1;font-size:9px;color:var(--tx3);margin-left:6px;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
-.fp-body{padding:12px}
+.fp-lbl{flex:1;font-size:9px;color:var(--tx3);margin-left:5px;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+.fp-body{padding:11px}
 
-/* ══ SECTIONS ══ */
-.sec{padding:80px 20px}
-.ctr{max-width:1080px;margin:0 auto}
-.sc{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--g);background:var(--gdim);border:1px solid var(--br);padding:5px 13px;border-radius:20px;margin-bottom:14px}
-.sh{font-family:var(--fh);font-weight:800;font-size:clamp(24px,3.2vw,40px);line-height:1.1;letter-spacing:-.4px;margin-bottom:12px}
-.sp{font-size:16px;color:var(--tx2);max-width:520px;line-height:1.7}
+/* SECTIONS */
+.sec{padding:72px 18px}
+.ctr{max-width:1060px;margin:0 auto}
+.sc{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--g);background:var(--gdim);border:1px solid var(--br);padding:5px 12px;border-radius:20px;margin-bottom:13px}
+.sh{font-family:var(--fh);font-weight:800;font-size:clamp(23px,3vw,38px);line-height:1.1;letter-spacing:-.4px;margin-bottom:11px}
+.sp{font-size:15px;color:var(--tx2);max-width:500px;line-height:1.7}
+
+/* TELEGRAM CTA SECTION — big banner */
+.tg-section{padding:64px 18px;background:linear-gradient(135deg,#0a1f3a,#0d2a4a);border-top:1px solid rgba(34,158,217,.2);border-bottom:1px solid rgba(34,158,217,.2)}
+.tg-banner{max-width:800px;margin:0 auto;text-align:center}
+.tg-icon{width:80px;height:80px;background:var(--tg);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 0 40px rgba(34,158,217,.4)}
+.tg-icon svg{width:46px;height:46px;fill:#fff}
+.tg-banner h2{font-family:var(--fh);font-weight:800;font-size:clamp(24px,3.5vw,40px);margin-bottom:12px;color:#fff}
+.tg-banner h2 span{color:var(--tg)}
+.tg-banner p{font-size:16px;color:rgba(255,255,255,.7);margin-bottom:28px;max-width:560px;margin-left:auto;margin-right:auto}
+.tg-big-btn{display:inline-flex;align-items:center;gap:12px;background:var(--tg);color:#fff;padding:18px 44px;border-radius:12px;font-family:var(--ff);font-size:17px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 8px 32px rgba(34,158,217,.4);border:none;cursor:pointer}
+.tg-big-btn:hover{background:var(--tgd);transform:translateY(-3px);box-shadow:0 16px 48px rgba(34,158,217,.5)}
+.tg-big-btn svg{width:26px;height:26px;fill:#fff;flex-shrink:0}
+.tg-perks{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.tg-perk{display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,.7)}
+.tg-perk span{color:var(--tg);font-weight:700}
 
 /* Features */
-.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
-.fc{background:var(--card);border:1px solid var(--br2);border-radius:12px;padding:24px;transition:all .28s;position:relative;overflow:hidden}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:44px}
+.fc{background:var(--card);border:1px solid var(--br2);border-radius:12px;padding:22px;transition:all .28s;position:relative;overflow:hidden}
 .fc::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--g),transparent);opacity:0;transition:.28s}
 .fc:hover{border-color:var(--br);transform:translateY(-3px)}.fc:hover::after{opacity:1}
-.fi{width:44px;height:44px;background:var(--gdim);border:1px solid var(--br);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
+.fi{width:42px;height:42px;background:var(--gdim);border:1px solid var(--br);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:13px}
 .fc h3{font-family:var(--fh);font-weight:700;font-size:15px;margin-bottom:7px}
-.fc p{font-size:13px;color:var(--tx2);line-height:1.65}
-.ftag{display:inline-block;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;margin-top:10px;background:var(--gdim);color:var(--g);border:1px solid var(--br)}
+.fc p{font-size:12px;color:var(--tx2);line-height:1.65}
+.ftag{display:inline-block;font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px;margin-top:9px;background:var(--gdim);color:var(--g);border:1px solid var(--br)}
 
 /* Steps */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px;position:relative}
-.steps::before{content:'';position:absolute;top:24px;left:17%;right:17%;height:1px;background:linear-gradient(90deg,transparent,var(--br),transparent)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px;position:relative}
+.steps::before{content:'';position:absolute;top:23px;left:17%;right:17%;height:1px;background:linear-gradient(90deg,transparent,var(--br),transparent)}
 .step{text-align:center}
-.step-n{width:48px;height:48px;background:var(--g);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:800;font-size:18px;margin:0 auto 18px;position:relative;z-index:1}
-.step h3{font-family:var(--fh);font-weight:700;font-size:15px;margin-bottom:7px}
-.step p{font-size:13px;color:var(--tx2);line-height:1.65}
+.step-n{width:46px;height:46px;background:var(--g);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:800;font-size:17px;margin:0 auto 16px;position:relative;z-index:1}
+.step h3{font-family:var(--fh);font-weight:700;font-size:14px;margin-bottom:6px}
+.step p{font-size:12px;color:var(--tx2);line-height:1.65}
 
 /* Assets */
-.assets-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:32px}
-.a{background:var(--card);border:1px solid var(--br2);border-radius:10px;padding:16px 10px;text-align:center;transition:all .28s}
+.assets-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;margin-top:30px}
+.a{background:var(--card);border:1px solid var(--br2);border-radius:10px;padding:15px 8px;text-align:center;transition:all .28s}
 .a:hover{border-color:var(--br);transform:translateY(-3px)}
-.ae{font-size:22px;margin-bottom:6px}
+.ae{font-size:21px;margin-bottom:5px}
 .an{font-family:var(--fh);font-weight:700;font-size:12px}
 .at{font-size:10px;color:var(--tx3);margin-top:2px}
 
 /* Trust strip */
-.trust-strip{background:var(--bg2);border-top:1px solid var(--br2);border-bottom:1px solid var(--br2);padding:16px 20px}
-.trust-inner{max-width:900px;margin:0 auto;display:flex;gap:28px;justify-content:center;align-items:center;flex-wrap:wrap}
-.ti{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--tx2)}
+.trust-strip{background:var(--bg2);border-top:1px solid var(--br2);border-bottom:1px solid var(--br2);padding:14px 18px}
+.trust-inner{max-width:860px;margin:0 auto;display:flex;gap:24px;justify-content:center;align-items:center;flex-wrap:wrap}
+.ti{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--tx2)}
 .ti strong{color:var(--tx)}
 
 /* Testimonials carousel */
-.tcar{position:relative;overflow:hidden;margin-top:48px}
-.ttrack{display:flex;gap:18px;transition:transform .4s ease}
-.tc{background:var(--card);border:1px solid var(--br2);border-radius:12px;padding:22px;min-width:calc(33.33% - 13px);flex-shrink:0;position:relative}
-.tc::before{content:'"';font-family:var(--fh);font-size:52px;color:var(--g);opacity:.15;position:absolute;top:8px;left:20px;line-height:1}
-.stars{color:var(--gold);font-size:13px;margin-bottom:12px}
-.tq{font-size:13px;color:var(--tx2);line-height:1.78;margin-bottom:15px;padding-top:4px}
-.ta{display:flex;align-items:center;gap:9px}
-.tav{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--g),var(--gd));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#000;flex-shrink:0}
-.tn{font-weight:600;font-size:13px}
-.tr3{font-size:11px;color:var(--tx3);margin-top:1px}
-.tbg{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;margin-top:5px;background:var(--gdim);color:var(--g);border:1px solid var(--br)}
-.tctrl{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:20px}
-.tbtn{width:34px;height:34px;border-radius:50%;background:var(--card);border:1px solid var(--br2);color:var(--tx2);font-size:18px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center}
+.tcar{position:relative;overflow:hidden;margin-top:44px}
+.ttrack{display:flex;gap:16px;transition:transform .4s ease}
+.tc{background:var(--card);border:1px solid var(--br2);border-radius:11px;padding:20px;min-width:calc(33.33% - 12px);flex-shrink:0;position:relative}
+.tc::before{content:'"';font-family:var(--fh);font-size:50px;color:var(--g);opacity:.14;position:absolute;top:8px;left:18px;line-height:1}
+.stars{color:var(--gold);font-size:12px;margin-bottom:11px}
+.tq{font-size:12px;color:var(--tx2);line-height:1.76;margin-bottom:14px;padding-top:4px}
+.ta{display:flex;align-items:center;gap:8px}
+.tav{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--g),var(--gd));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:#000;flex-shrink:0}
+.tn{font-weight:600;font-size:12px}
+.tr3{font-size:10px;color:var(--tx3);margin-top:1px}
+.tbg{display:inline-block;font-size:9px;font-weight:700;padding:2px 8px;border-radius:20px;margin-top:4px;background:var(--gdim);color:var(--g);border:1px solid var(--br)}
+.tctrl{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:18px}
+.tbtn{width:32px;height:32px;border-radius:50%;background:var(--card);border:1px solid var(--br2);color:var(--tx2);font-size:17px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center}
 .tbtn:hover{border-color:var(--g);color:var(--g)}
 .tdots{display:flex;gap:5px;align-items:center}
-.tdot{width:6px;height:6px;border-radius:50%;background:var(--br2);transition:all .2s;cursor:pointer}
-.tdot.on{width:18px;border-radius:3px;background:var(--g)}
-
-/* Pricing */
-.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:760px;margin:48px auto 0}
-.pc{background:var(--card);border:1px solid var(--br2);border-radius:16px;padding:32px;position:relative}
-.pc.best{border-color:var(--g);background:linear-gradient(145deg,rgba(0,208,132,.06),var(--card))}
-.bestt{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--g);color:#000;font-size:10px;font-weight:800;padding:3px 14px;border-radius:20px;letter-spacing:.7px;white-space:nowrap}
-.pn{font-size:11px;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:9px}
-.pp{font-family:var(--fh);font-weight:800;font-size:44px;color:#fff;line-height:1}
-.pp sup{font-size:19px;vertical-align:top;margin-top:8px}
-.pp sub{font-size:13px;color:var(--tx2);font-weight:400}
-.psave{display:inline-block;background:rgba(0,208,132,.14);color:var(--g);font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin:8px 0 18px}
-.psub{font-size:12px;color:var(--tx3);margin:8px 0 18px}
-.pfl{list-style:none;margin-bottom:24px}
-.pfl li{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--tx2);padding:6px 0;border-bottom:1px solid var(--br2)}
-.pfl li:last-child{border:none}
-.pfl li::before{content:'✓';color:var(--g);font-weight:700;flex-shrink:0}
-.pcta{width:100%;padding:13px;border-radius:8px;font-family:var(--ff);font-weight:700;font-size:14px;cursor:pointer;transition:all .28s;text-align:center;display:block;border:none}
-.pcta.pri{background:linear-gradient(135deg,var(--g),var(--gd));color:#000}
-.pcta.pri:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(0,208,132,.26)}
-.pcta.sec{background:transparent;color:var(--tx);border:1px solid var(--br2)}
-.pcta.sec:hover{border-color:var(--g);color:var(--g)}
-.ppn{text-align:center;margin-top:16px;font-size:12px;color:var(--tx3);display:flex;align-items:center;justify-content:center;gap:7px}
-.ppl{background:#003087;color:#fff;font-size:10px;font-weight:800;padding:2px 9px;border-radius:4px}
-.pmb{text-align:center;margin-top:18px;font-size:13px;color:var(--tx2)}
-.pmb strong{color:var(--g)}
+.tdot{width:5px;height:5px;border-radius:50%;background:var(--br2);transition:all .2s;cursor:pointer}
+.tdot.on{width:16px;border-radius:3px;background:var(--g)}
 
 /* FAQ */
-.fl{max-width:640px;margin:48px auto 0}
-.fitem{border-bottom:1px solid var(--br2);padding:18px 0;cursor:pointer}
-.fq{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:15px;color:#fff}
-.ftog{color:var(--g);font-size:18px;flex-shrink:0;transition:transform .28s}
-.fa{font-size:13px;color:var(--tx2);line-height:1.78;max-height:0;overflow:hidden;transition:all .3s}
-.fitem.open .ftog{transform:rotate(45deg)}.fitem.open .fa{max-height:200px;padding-top:10px}
+.fl{max-width:620px;margin:44px auto 0}
+.fitem{border-bottom:1px solid var(--br2);padding:17px 0;cursor:pointer}
+.fq{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:14px;color:#fff;gap:12px}
+.ftog{color:var(--g);font-size:17px;flex-shrink:0;transition:transform .28s}
+.fa{font-size:12px;color:var(--tx2);line-height:1.76;max-height:0;overflow:hidden;transition:all .3s}
+.fitem.open .ftog{transform:rotate(45deg)}.fitem.open .fa{max-height:180px;padding-top:9px}
 
 /* Final CTA */
-.fcta{background:linear-gradient(155deg,var(--bg2),var(--bg3));border-top:1px solid var(--br2);padding:100px 20px;text-align:center}
-.fcta h2{font-family:var(--fh);font-weight:800;font-size:clamp(26px,4vw,50px);letter-spacing:-.5px;margin-bottom:14px}
-.fcta h2 em{color:var(--g);font-style:normal}
-.fcta p{font-size:16px;color:var(--tx2);margin-bottom:32px}
-.trust-row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:36px}
-.trust-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--tx3)}
+.fcta{background:linear-gradient(155deg,var(--bg2),var(--bg3));border-top:1px solid var(--br2);padding:90px 18px;text-align:center}
+.fcta h2{font-family:var(--fh);font-weight:800;font-size:clamp(24px,3.8vw,48px);letter-spacing:-.5px;margin-bottom:13px}
+.fcta h2 em{color:var(--tg);font-style:normal}
+.fcta p{font-size:15px;color:var(--tx2);margin-bottom:28px}
+
+/* IMPRESSUM */
+.impressum{background:var(--bg);border-top:1px solid var(--br2);padding:48px 18px}
+.imp-inner{max-width:800px;margin:0 auto}
+.imp-inner h3{font-family:var(--fh);font-weight:700;font-size:18px;color:var(--tx);margin-bottom:20px}
+.imp-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.imp-block{background:var(--bg2);border:1px solid var(--br2);border-radius:10px;padding:18px}
+.imp-block h4{font-size:12px;font-weight:700;color:var(--g);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.imp-block p,.imp-block a{font-size:12px;color:var(--tx2);line-height:1.8;text-decoration:none}
+.imp-block a:hover{color:var(--g)}
+.imp-block strong{color:var(--tx)}
+.disclaimer-box{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:16px;margin-top:20px}
+.disclaimer-box p{font-size:11px;color:rgba(255,255,255,.6);line-height:1.7}
+.disclaimer-box strong{color:var(--gold)}
 
 /* Footer */
-footer{background:var(--bg);border-top:1px solid var(--br2);padding:32px 20px}
-.foot-in{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
-.foot-logo{font-family:var(--fh);font-size:15px;font-weight:800}
+footer{background:var(--bg);border-top:1px solid var(--br2);padding:28px 18px}
+.foot-in{max-width:1060px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.foot-logo{font-family:var(--fh);font-size:14px;font-weight:800}
 .foot-logo .w{color:#fff}.foot-logo .g{color:var(--g)}
-.foot-links{display:flex;gap:18px;flex-wrap:wrap}
-.foot-links a{font-size:12px;color:var(--tx3);text-decoration:none;transition:color .2s}
+.foot-links{display:flex;gap:16px;flex-wrap:wrap}
+.foot-links a{font-size:11px;color:var(--tx3);text-decoration:none;transition:color .2s}
 .foot-links a:hover{color:var(--g)}
 .foot-copy{font-size:11px;color:var(--tx3)}
 
 /* Sticky mobile CTA */
-#sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:900;background:linear-gradient(135deg,var(--g),var(--gd));padding:13px 20px;text-align:center;box-shadow:0 -4px 20px rgba(0,208,132,.3)}
-#sticky-cta button{font-family:var(--ff);font-size:15px;font-weight:700;background:transparent;border:none;color:#000;cursor:pointer;width:100%}
+#sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:900;background:var(--tg);padding:12px 18px;text-align:center;box-shadow:0 -4px 20px rgba(34,158,217,.4)}
+#sticky-cta a{display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-family:var(--ff);font-size:14px;font-weight:700;text-decoration:none}
 
-/* Reveal */
-.rv{opacity:0;transform:translateY(24px);transition:all .6s ease}
+.rv{opacity:0;transform:translateY(22px);transition:all .6s ease}
 .rv.vis{opacity:1;transform:none}
 
-/* Animations */
 @keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,208,132,.4)}50%{box-shadow:0 0 0 10px rgba(0,208,132,0)}}
+@keyframes pulse-tg{0%,100%{box-shadow:0 0 0 0 rgba(34,158,217,.5)}50%{box-shadow:0 0 0 12px rgba(34,158,217,0)}}
+.pulse-tg{animation:pulse-tg 2.2s infinite}
 
-/* ══ RESPONSIVE ══ */
+/* RESPONSIVE */
 @media(max-width:900px){
-  nav{padding:0 16px}
+  nav{padding:0 14px}
   .nav-mid{display:none}
   .lang-sw{display:none}
   .ham{display:flex}
   .feat-grid{grid-template-columns:1fr 1fr}
-  .steps{grid-template-columns:1fr;gap:32px}
+  .steps{grid-template-columns:1fr;gap:28px}
   .steps::before{display:none}
   .assets-grid{grid-template-columns:repeat(3,1fr)}
-  .pricing-grid{grid-template-columns:1fr}
-  .tc{min-width:calc(50% - 10px)}
-  .feat-panels{grid-template-columns:1fr}
+  .tc{min-width:calc(50% - 9px)}
+  .fpanel-grid{grid-template-columns:1fr}
   .acr{grid-template-columns:1fr 1fr}
   .mr{grid-template-columns:1fr 1fr}
+  .imp-cols{grid-template-columns:1fr}
 }
 @media(max-width:600px){
-  .hero{padding:90px 16px 56px}
+  .hero{padding:84px 14px 52px}
   .feat-grid{grid-template-columns:1fr}
   .assets-grid{grid-template-columns:repeat(2,1fr)}
   .tc{min-width:100%}
-  .hstats{gap:20px}
-  .sn{font-size:24px}
-  .hero-ctas{flex-direction:column;align-items:center}
-  .bp,.bs{width:100%;max-width:300px;justify-content:center}
+  .hstats{gap:18px}
+  .sn{font-size:22px}
   .dash-wrap{display:none}
-  .pricing-grid{grid-template-columns:1fr}
+  .tg-big-btn{padding:15px 28px;font-size:15px}
+  .tg-icon{width:64px;height:64px}
+  .tg-icon svg{width:36px;height:36px}
   .acr{grid-template-columns:1fr}
   .mr{grid-template-columns:1fr 1fr}
+  .tg-hero-cta{padding:14px 24px;font-size:14px}
 }
 @media(max-width:400px){
-  .feat-grid{grid-template-columns:1fr}
   .assets-grid{grid-template-columns:repeat(2,1fr)}
-  .pp{font-size:36px}
+  .feat-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -313,18 +309,13 @@ footer{background:var(--bg);border-top:1px solid var(--br2);padding:32px 20px}
 <!-- NAV -->
 <nav>
   <a href="#" class="logo">
-    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="36" height="36" rx="8" fill="#0d1b2e"/>
-      <path d="M4 26 L10 18 L16 22 L22 12 L28 16 L32 8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="32" cy="8" r="2" fill="#fff"/>
-      <path d="M4 30 L32 30" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity=".5"/>
-    </svg>
+    <svg viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="8" fill="#0d1b2e"/><path d="M4 26 L10 18 L16 22 L22 12 L28 16 L32 8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="8" r="2" fill="#fff"/><path d="M4 30 L32 30" stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity=".5"/></svg>
     <span class="logo-txt"><span class="w">AI</span> <span class="g">Trade Board</span></span>
   </a>
   <div class="nav-mid">
     <a href="#features" data-t="n.f">Features</a>
     <a href="#how" data-t="n.h">How it works</a>
-    <a href="#pricing" data-t="n.p">Pricing</a>
+    <a href="#join" data-t="n.j">Join Telegram</a>
     <a href="#faq" data-t="n.q">FAQ</a>
   </div>
   <div class="nav-right">
@@ -332,10 +323,11 @@ footer{background:var(--bg);border-top:1px solid var(--br2);padding:32px 20px}
       <button class="on" id="lbEN" onclick="setLang('en')">🇬🇧 EN</button>
       <button id="lbDE" onclick="setLang('de')">🇩🇪 DE</button>
     </div>
-    <button class="nav-cta" onclick="scroll2('pricing')" data-t="n.cta">Start Free Trial →</button>
-    <button class="ham" id="hamBtn" onclick="toggleMob()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="https://t.me/+9UIMPylGLJc3Yzli" target="_blank" rel="noopener" class="tg-nav-btn">
+      <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+      <span data-t="n.tg">Join Free on Telegram</span>
+    </a>
+    <button class="ham" id="hamBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -347,9 +339,12 @@ footer{background:var(--bg);border-top:1px solid var(--br2);padding:32px 20px}
   </div>
   <a href="#features" onclick="toggleMob()" data-t="n.f">Features</a>
   <a href="#how" onclick="toggleMob()" data-t="n.h">How it works</a>
-  <a href="#pricing" onclick="toggleMob()" data-t="n.p">Pricing</a>
+  <a href="#join" onclick="toggleMob()" data-t="n.j">Join Telegram</a>
   <a href="#faq" onclick="toggleMob()" data-t="n.q">FAQ</a>
-  <button class="mob-cta" onclick="scroll2('pricing');toggleMob()" data-t="n.cta">Start Free Trial →</button>
+  <a href="https://t.me/+9UIMPylGLJc3Yzli" target="_blank" rel="noopener" class="mob-tg" onclick="toggleMob()">
+    <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#fff;flex-shrink:0"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+    <span data-t="n.tg">Join Free on Telegram</span>
+  </a>
 </div>
 
 <!-- HERO -->
@@ -359,10 +354,11 @@ footer{background:var(--bg);border-top:1px solid var(--br2);padding:32px 20px}
   <h1 class="z1"><span data-t="h.h1">Trade Smarter with</span><br><em data-t="h.em">Real AI Analysis</em></h1>
   <p class="hero-sub z1" data-t="h.sub">Professional market intelligence for Forex, Gold, Nasdaq & more. Daily AI briefings, Deep Dive analysis, 6-asset ranking — not signals, intelligence.</p>
   <p class="social-proof z1"><span>⭐ 4.9/5</span> · <span data-t="h.sp">Trusted by 127+ traders in 18 countries</span></p>
-  <div class="hero-ctas z1">
-    <button class="bp" onclick="scroll2('pricing')" data-t="h.c1">🚀 Start Free Trial</button>
-    <a href="https://trade-ai-dashboard.vercel.app" target="_blank" rel="noopener" class="bs" data-t="h.c2">View Live Demo →</a>
-  </div>
+  <a href="https://t.me/+9UIMPylGLJc3Yzli" target="_blank" rel="noopener" class="tg-hero-cta z1 pulse-tg">
+    <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+    <span data-t="h.cta">Join Free on Telegram →</span>
+  </a>
+  <a href="https://trade-ai-dashboard.vercel.app" target="_blank" rel="noopener" class="tg-sub-link z1" data-t="h.demo">Or view the <span>live demo</span> first →</a>
   <div class="hstats z1">
     <div><div class="sn">6+</div><div class="sl" data-t="h.s1">Assets Daily</div></div>
     <div><div class="sn">74%</div><div class="sl" data-t="h.s2">AI Confidence</div></div>
@@ -371,147 +367,103 @@ footer{background:var(--bg);border-top:1px solid var(--br2);padding:32px 20px}
   </div>
   <p class="disc z1" data-t="h.disc">* AI-powered recommendations only. Not financial advice. Trading involves risk.</p>
 
-  <!-- LIVE DASHBOARD REPLICA — exact match to real dashboard -->
+  <!-- Dashboard Replica — real data from live briefing -->
   <div class="dash-wrap z1">
     <div class="dash-glow"></div>
     <div class="dash-frame">
       <div class="dash-bar">
         <div class="dot r"></div><div class="dot y"></div><div class="dot g2"></div>
         <div class="dash-url">trade-ai-dashboard.vercel.app — AI Trade Board</div>
-        <div class="live-badge"><div class="live-dot"></div>LIVE</div>
+        <div class="live-b"><div class="live-d"></div>LIVE</div>
       </div>
       <div class="di">
-        <!-- Topbar exact match -->
         <div class="dtr">
           <div class="dlogo">
-            <svg viewBox="0 0 36 36" fill="none" width="26" height="26"><rect width="36" height="36" rx="8" fill="#0d1b2e"/><path d="M4 26 L10 18 L16 22 L22 12 L28 16 L32 8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="8" r="2" fill="#fff"/></svg>
+            <svg viewBox="0 0 36 36" fill="none" width="24" height="24"><rect width="36" height="36" rx="8" fill="#0d1b2e"/><path d="M4 26 L10 18 L16 22 L22 12 L28 16 L32 8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="8" r="2" fill="#fff"/></svg>
             <span class="dlogo-nm"><span class="w">AI</span> <span class="g">Trade Board</span></span>
-            <div class="dwelcome">Welcome, <b>Leandro</b></div>
-            <span style="font-size:9px;font-weight:700;background:rgba(0,208,132,.15);color:var(--g);padding:2px 8px;border-radius:20px;border:1px solid var(--br)">1× today</span>
           </div>
+          <div class="dwelc">Welcome, <b>Leandro</b></div>
           <div class="dlp"><span class="off">🇩🇪 DE</span><span class="on">🇬🇧 EN</span></div>
-          <span style="font-size:10px;color:var(--tx2);background:var(--bg3);border:1px solid var(--br2);padding:4px 10px;border-radius:6px">Sat, 11 Apr 2026</span>
-          <span style="font-size:10px;font-weight:700;color:var(--g);background:var(--gdim);padding:4px 10px;border-radius:6px;border:1px solid var(--br)">● AI-POWERED</span>
+          <span style="font-size:9px;color:var(--tx2);background:var(--bg3);border:1px solid var(--br2);padding:3px 9px;border-radius:5px">Sat, 11 Apr 2026</span>
+          <span style="font-size:9px;font-weight:700;color:var(--g);background:var(--gdim);padding:3px 9px;border-radius:5px;border:1px solid var(--br)">● AI-POWERED</span>
           <button class="dbtn">⬡ New Briefing</button>
         </div>
-        <!-- Sentiment -->
         <div class="sent">
           <div class="sr">
-            <span style="font-size:10px;font-weight:700;color:var(--tx2);text-transform:uppercase;letter-spacing:.5px">SENTIMENT</span>
-            <span class="sb">MIXED</span>
+            <span style="font-size:9px;font-weight:700;color:var(--tx2);text-transform:uppercase;letter-spacing:.4px">SENTIMENT</span>
+            <span class="sbdg">MIXED</span>
             <span class="etag">No high-impact events</span>
-            <span class="etag">Continued gold selling pressure</span>
+            <span class="etag">Gold selling pressure</span>
           </div>
-          <div class="stxt">Mixed market backdrop with gold selling pressure, equities stable, weak dollar, no significant events scheduled.</div>
+          <div class="stxt">Mixed market backdrop. Gold under selling pressure, equities stable, weak dollar, no significant events scheduled.</div>
         </div>
-        <!-- Macro — real live data -->
         <div class="mr">
-          <div class="mb3"><div class="ml3">DXY</div><div class="mv3 r">98.70</div><div class="ms3">Weaker at -0.12%, lower dollar demand</div></div>
-          <div class="mb3"><div class="ml3">VIX</div><div class="mv3 g">19.23</div><div class="ms3">Indicates calm, no volatility spike</div></div>
-          <div class="mb3"><div class="ml3">US10Y</div><div class="mv3 b">4.317%</div><div class="ms3">Stable at 4.317%, rate hold expected</div></div>
-          <div class="mb3"><div class="ml3">SPX</div><div class="mv3 gold">6,817</div><div class="ms3">Down 0.11%, resistance zone intact</div></div>
+          <div class="mb3"><div class="ml3">DXY</div><div class="mv3 r">98.70</div><div class="ms3">Weaker -0.12%</div></div>
+          <div class="mb3"><div class="ml3">VIX</div><div class="mv3 g">19.23</div><div class="ms3">Calm market</div></div>
+          <div class="mb3"><div class="ml3">US10Y</div><div class="mv3 b">4.317%</div><div class="ms3">Rate hold expected</div></div>
+          <div class="mb3"><div class="ml3">SPX</div><div class="mv3 go">6,817</div><div class="ms3">Resistance intact</div></div>
         </div>
-        <!-- Asset cards — real data from live briefing -->
         <div class="acr">
           <div class="ac2 bear">
-            <div class="ach"><span class="acn2 gc">GOLD</span><span class="acb2 bear-b">BEARISH BIAS</span></div>
-            <div style="font-size:9px;color:var(--tx3);margin-bottom:5px">GOLD / XAUUSD</div>
-            <div class="acp2">$4,771</div>
-            <div class="actf2"><span class="tf2 r">4H ▼</span><span class="tf2 r">Daily ▼</span><span class="tf2 r">Weekly ▼</span></div>
-            <div style="font-size:9px;color:var(--tx2)">Confidence: <strong style="color:var(--g)">72/100</strong></div>
-            <div class="acai2"><div class="acail">AI ANALYSIS</div>Risk aversion intensifies selling. Downside break without support confirms bearish regime.</div>
+            <div class="ach"><span class="acn gc">GOLD</span><span class="acb bear-b">BEARISH BIAS</span></div>
+            <div style="font-size:8px;color:var(--tx3);margin-bottom:4px">GOLD / XAUUSD</div>
+            <div class="acp">$4,771</div>
+            <div class="actf"><span class="tf r">4H ▼</span><span class="tf r">Daily ▼</span><span class="tf r">Weekly ▼</span></div>
+            <div style="font-size:8px;color:var(--tx2)">Confidence: <strong style="color:var(--g)">72/100</strong></div>
+            <div class="acai"><div class="acail">AI ANALYSIS</div>Risk aversion intensifies selling. Downside break without support confirms bearish regime.</div>
           </div>
           <div class="ac2 watch">
-            <div class="ach"><span class="acn2 nc">NAS100</span><span class="acb2 watch-b">WATCHLIST</span></div>
-            <div style="font-size:9px;color:var(--tx3);margin-bottom:5px">NASDAQ / US100</div>
-            <div class="acp2">25,333</div>
-            <div class="actf2"><span class="tf2 n">4H ◆</span><span class="tf2 n">Daily ◆</span><span class="tf2 b">Weekly ▲</span></div>
-            <div style="font-size:9px;color:var(--tx2)">Confidence: <strong style="color:var(--g)">68/100</strong></div>
-            <div class="acai2"><div class="acail">AI ANALYSIS</div>Technology selling rational, support zones holding. Weekly bullish bias intact.</div>
+            <div class="ach"><span class="acn nc">NAS100</span><span class="acb watch-b">WATCHLIST</span></div>
+            <div style="font-size:8px;color:var(--tx3);margin-bottom:4px">NASDAQ / US100</div>
+            <div class="acp">25,333</div>
+            <div class="actf"><span class="tf n">4H ◆</span><span class="tf n">Daily ◆</span><span class="tf b">Weekly ▲</span></div>
+            <div style="font-size:8px;color:var(--tx2)">Confidence: <strong style="color:var(--g)">68/100</strong></div>
+            <div class="acai"><div class="acail">AI ANALYSIS</div>Technology selling rational, support zones holding. Weekly bullish bias intact.</div>
           </div>
           <div class="ac2 bull">
-            <div class="ach"><span class="acn2 ec">EUR/GBP</span><span class="acb2 bull-b">BULLISH BIAS</span></div>
-            <div style="font-size:9px;color:var(--tx3);margin-bottom:5px">EUR / GBP</div>
-            <div class="acp2">0.8709</div>
-            <div class="actf2"><span class="tf2 b">4H ▲</span><span class="tf2 b">Daily ▲</span><span class="tf2 n">Weekly ◆</span></div>
-            <div style="font-size:9px;color:var(--tx2)">Confidence: <strong style="color:var(--g)">65/100</strong></div>
-            <div class="acai2"><div class="acail">AI ANALYSIS</div>BoE optimism vs Eurozone uncertainty. Technical strength offers best opportunities.</div>
+            <div class="ach"><span class="acn ec">EUR/GBP</span><span class="acb bull-b">BULLISH BIAS</span></div>
+            <div style="font-size:8px;color:var(--tx3);margin-bottom:4px">EUR / GBP</div>
+            <div class="acp">0.8709</div>
+            <div class="actf"><span class="tf b">4H ▲</span><span class="tf b">Daily ▲</span><span class="tf n">Weekly ◆</span></div>
+            <div style="font-size:8px;color:var(--tx2)">Confidence: <strong style="color:var(--g)">65/100</strong></div>
+            <div class="acai"><div class="acail">AI ANALYSIS</div>BoE optimism vs Eurozone uncertainty. Technical strength offers best setup.</div>
           </div>
         </div>
-        <!-- Feature panels: Deep Dive + Calendar -->
-        <div class="feat-panels">
+        <div class="fpanel-grid">
           <div class="fp">
             <div class="fp-bar">
-              <div class="fp-dot" style="background:#ef4444"></div>
-              <div class="fp-dot" style="background:#f59e0b"></div>
-              <div class="fp-dot" style="background:#22c55e"></div>
+              <div class="fp-dot" style="background:#ef4444"></div><div class="fp-dot" style="background:#f59e0b"></div><div class="fp-dot" style="background:#22c55e"></div>
               <span class="fp-lbl">🔬 Deep Dive — NAS100 Analysis</span>
-              <span style="font-size:9px;font-weight:700;background:rgba(245,158,11,.15);color:var(--gold);padding:2px 7px;border-radius:20px">WATCHLIST</span>
+              <span style="font-size:8px;font-weight:700;background:rgba(245,158,11,.15);color:var(--gold);padding:2px 6px;border-radius:20px">WATCHLIST</span>
             </div>
             <div class="fp-body">
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
                 <div>
-                  <div style="font-size:9px;font-weight:700;color:var(--tx3);text-transform:uppercase;margin-bottom:7px">Probabilities</div>
-                  <div style="display:flex;align-items:center;gap:6px;margin-bottom:5px">
-                    <span style="font-size:9px;color:var(--tx2);width:30px">BULL</span>
-                    <div style="flex:1;height:4px;background:rgba(255,255,255,.08);border-radius:2px"><div style="width:55%;height:100%;background:var(--g);border-radius:2px"></div></div>
-                    <span style="font-size:9px;font-weight:700;color:var(--g)">55%</span>
-                  </div>
-                  <div style="display:flex;align-items:center;gap:6px;margin-bottom:5px">
-                    <span style="font-size:9px;color:var(--tx2);width:30px">BEAR</span>
-                    <div style="flex:1;height:4px;background:rgba(255,255,255,.08);border-radius:2px"><div style="width:35%;height:100%;background:var(--red);border-radius:2px"></div></div>
-                    <span style="font-size:9px;font-weight:700;color:var(--red)">35%</span>
-                  </div>
-                  <div style="display:flex;align-items:center;gap:6px">
-                    <span style="font-size:9px;color:var(--tx2);width:30px">RANGE</span>
-                    <div style="flex:1;height:4px;background:rgba(255,255,255,.08);border-radius:2px"><div style="width:10%;height:100%;background:var(--tx2);border-radius:2px"></div></div>
-                    <span style="font-size:9px;font-weight:700;color:var(--tx2)">10%</span>
-                  </div>
+                  <div style="font-size:8px;font-weight:700;color:var(--tx3);text-transform:uppercase;margin-bottom:6px">Probabilities</div>
+                  <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px"><span style="font-size:8px;color:var(--tx2);width:28px">BULL</span><div style="flex:1;height:4px;background:rgba(255,255,255,.08);border-radius:2px"><div style="width:55%;height:100%;background:var(--g);border-radius:2px"></div></div><span style="font-size:8px;font-weight:700;color:var(--g)">55%</span></div>
+                  <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px"><span style="font-size:8px;color:var(--tx2);width:28px">BEAR</span><div style="flex:1;height:4px;background:rgba(255,255,255,.08);border-radius:2px"><div style="width:35%;height:100%;background:var(--red);border-radius:2px"></div></div><span style="font-size:8px;font-weight:700;color:var(--red)">35%</span></div>
+                  <div style="display:flex;align-items:center;gap:5px"><span style="font-size:8px;color:var(--tx2);width:28px">RNG</span><div style="flex:1;height:4px;background:rgba(255,255,255,.08);border-radius:2px"><div style="width:10%;height:100%;background:var(--tx2);border-radius:2px"></div></div><span style="font-size:8px;font-weight:700;color:var(--tx2)">10%</span></div>
                 </div>
                 <div>
-                  <div style="font-size:9px;font-weight:700;color:var(--tx3);text-transform:uppercase;margin-bottom:7px">Key Levels</div>
-                  <div style="display:flex;justify-content:space-between;margin-bottom:5px"><span style="font-size:9px;font-weight:700;background:rgba(239,68,68,.12);color:var(--red);padding:1px 5px;border-radius:3px">RES 1</span><span style="font-size:9px;font-weight:700">25,450</span></div>
-                  <div style="display:flex;justify-content:space-between;margin-bottom:5px"><span style="font-size:9px;font-weight:700;background:rgba(0,208,132,.12);color:var(--g);padding:1px 5px;border-radius:3px">SUP 1</span><span style="font-size:9px;font-weight:700">25,180</span></div>
-                  <div style="display:flex;justify-content:space-between"><span style="font-size:9px;font-weight:700;background:rgba(0,208,132,.12);color:var(--g);padding:1px 5px;border-radius:3px">SUP 2</span><span style="font-size:9px;font-weight:700">24,950</span></div>
-                  <div style="margin-top:6px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15);border-radius:5px;padding:5px;font-size:9px;color:var(--tx2)"><strong style="color:var(--gold)">INVALID ↑</strong> Break above 25,680</div>
+                  <div style="font-size:8px;font-weight:700;color:var(--tx3);text-transform:uppercase;margin-bottom:6px">Key Levels</div>
+                  <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:8px;font-weight:700;background:rgba(239,68,68,.12);color:var(--red);padding:1px 5px;border-radius:3px">RES 1</span><span style="font-size:8px;font-weight:700">25,450</span></div>
+                  <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:8px;font-weight:700;background:rgba(0,208,132,.12);color:var(--g);padding:1px 5px;border-radius:3px">SUP 1</span><span style="font-size:8px;font-weight:700">25,180</span></div>
+                  <div style="display:flex;justify-content:space-between"><span style="font-size:8px;font-weight:700;background:rgba(0,208,132,.12);color:var(--g);padding:1px 5px;border-radius:3px">SUP 2</span><span style="font-size:8px;font-weight:700">24,950</span></div>
+                  <div style="margin-top:5px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.15);border-radius:4px;padding:4px;font-size:8px;color:var(--tx2)"><strong style="color:var(--gold)">INVALID ↑</strong> Break above 25,680</div>
                 </div>
               </div>
             </div>
           </div>
           <div class="fp">
             <div class="fp-bar">
-              <div class="fp-dot" style="background:#ef4444"></div>
-              <div class="fp-dot" style="background:#f59e0b"></div>
-              <div class="fp-dot" style="background:#22c55e"></div>
-              <span class="fp-lbl">📅 Economic Calendar — Live Events</span>
+              <div class="fp-dot" style="background:#ef4444"></div><div class="fp-dot" style="background:#f59e0b"></div><div class="fp-dot" style="background:#22c55e"></div>
+              <span class="fp-lbl">📅 Economic Calendar — Live</span>
             </div>
             <div class="fp-body">
-              <div style="display:flex;gap:6px;margin-bottom:10px">
-                <span style="font-size:10px;font-weight:700;background:var(--g);color:#000;padding:4px 10px;border-radius:5px">📅 Today</span>
-                <span style="font-size:10px;color:var(--tx2);background:var(--bg3);border:1px solid var(--br2);padding:4px 10px;border-radius:5px">Tomorrow</span>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:5px">
-                <div style="display:flex;align-items:center;gap:6px;padding:7px 9px;background:var(--bg3);border-radius:6px;border:1px solid var(--br2)">
-                  <span style="font-size:9px;color:var(--tx2);width:32px">14:30</span>
-                  <span style="width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0"></span>
-                  <span style="flex:1;font-size:10px;font-weight:600">US Retail Sales MoM</span>
-                  <span style="font-size:8px;font-weight:700;color:var(--g);background:var(--gdim);padding:1px 5px;border-radius:3px">GOLD</span>
-                  <span style="font-size:8px;font-weight:700;color:var(--red);background:rgba(239,68,68,.1);padding:1px 7px;border-radius:20px">HIGH</span>
-                </div>
-                <div style="display:flex;align-items:center;gap:6px;padding:7px 9px;background:var(--bg3);border-radius:6px;border:1px solid var(--br2)">
-                  <span style="font-size:9px;color:var(--tx2);width:32px">16:00</span>
-                  <span style="width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0"></span>
-                  <span style="flex:1;font-size:10px;font-weight:600">Fed Williams Speech</span>
-                  <span style="font-size:8px;font-weight:700;color:var(--g);background:var(--gdim);padding:1px 5px;border-radius:3px">EURUSD</span>
-                  <span style="font-size:8px;font-weight:700;color:var(--red);background:rgba(239,68,68,.1);padding:1px 7px;border-radius:20px">HIGH</span>
-                </div>
-                <div style="display:flex;align-items:center;gap:6px;padding:7px 9px;background:var(--bg3);border-radius:6px;border:1px solid var(--br2)">
-                  <span style="font-size:9px;color:var(--tx2);width:32px">09:00</span>
-                  <span style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0"></span>
-                  <span style="flex:1;font-size:10px;font-weight:600">ECB Economic Bulletin</span>
-                  <span style="font-size:8px;font-weight:700;color:var(--g);background:var(--gdim);padding:1px 5px;border-radius:3px">EURUSD</span>
-                  <span style="font-size:8px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);padding:1px 7px;border-radius:20px">MEDIUM</span>
-                </div>
+              <div style="display:flex;flex-direction:column;gap:4px">
+                <div style="display:flex;align-items:center;gap:5px;padding:6px 8px;background:var(--bg3);border-radius:5px;border:1px solid var(--br2)"><span style="font-size:8px;color:var(--tx2);width:30px">14:30</span><span style="width:5px;height:5px;border-radius:50%;background:var(--red);flex-shrink:0"></span><span style="flex:1;font-size:9px;font-weight:600">US Retail Sales MoM</span><span style="font-size:7px;font-weight:700;color:var(--g);background:var(--gdim);padding:1px 5px;border-radius:3px">GOLD</span><span style="font-size:7px;font-weight:700;color:var(--red);background:rgba(239,68,68,.1);padding:1px 6px;border-radius:20px">HIGH</span></div>
+                <div style="display:flex;align-items:center;gap:5px;padding:6px 8px;background:var(--bg3);border-radius:5px;border:1px solid var(--br2)"><span style="font-size:8px;color:var(--tx2);width:30px">16:00</span><span style="width:5px;height:5px;border-radius:50%;background:var(--red);flex-shrink:0"></span><span style="flex:1;font-size:9px;font-weight:600">Fed Williams Speech</span><span style="font-size:7px;font-weight:700;color:var(--g);background:var(--gdim);padding:1px 5px;border-radius:3px">EUR/USD</span><span style="font-size:7px;font-weight:700;color:var(--red);background:rgba(239,68,68,.1);padding:1px 6px;border-radius:20px">HIGH</span></div>
+                <div style="display:flex;align-items:center;gap:5px;padding:6px 8px;background:var(--bg3);border-radius:5px;border:1px solid var(--br2)"><span style="font-size:8px;color:var(--tx2);width:30px">09:00</span><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0"></span><span style="flex:1;font-size:9px;font-weight:600">ECB Economic Bulletin</span><span style="font-size:7px;font-weight:700;color:var(--g);background:var(--gdim);padding:1px 5px;border-radius:3px">EUR/USD</span><span style="font-size:7px;font-weight:700;color:var(--gold);background:rgba(245,158,11,.1);padding:1px 6px;border-radius:20px">MEDIUM</span></div>
               </div>
             </div>
           </div>
@@ -520,6 +472,7 @@ footer{background:var(--bg);border-top:1px solid var(--br2);padding:32px 20px}
     </div>
   </div>
 </section>
+
 <!-- FEATURES -->
 <section class="sec" id="features" style="background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 50%,var(--bg) 100%)">
   <div class="ctr">
@@ -529,12 +482,12 @@ footer{background:var(--bg);border-top:1px solid var(--br2);padding:32px 20px}
       <p class="sp" data-t="f.sp">Built for serious traders who want AI intelligence — not random signals.</p>
     </div>
     <div class="feat-grid rv">
-      <div class="fc"><div class="fi">🤖</div><h3 data-t="f1.t">Daily AI Briefings</h3><p data-t="f1.p">Every morning, Claude AI analyzes live market data across 6 assets and generates a full briefing with bias, regime, and key catalysts.</p><span class="ftag" data-t="f1.ft">Not signals — Intelligence</span></div>
-      <div class="fc"><div class="fi">📊</div><h3 data-t="f2.t">Multi-Timeframe Analysis</h3><p data-t="f2.p">4H, Daily, and Weekly bias for every asset. Know where each timeframe stands and how they align for high-confidence setups.</p><span class="ftag" data-t="f2.ft">4H · Daily · Weekly</span></div>
-      <div class="fc"><div class="fi">🔬</div><h3 data-t="f3.t">Deep Dive Analysis</h3><p data-t="f3.p">Probabilities, risk scores, key support/resistance levels, invalidation conditions, and a full technical read — for every asset, every day.</p><span class="ftag" data-t="f3.ft">Probabilities · Key Levels</span></div>
-      <div class="fc"><div class="fi">🎯</div><h3 data-t="f4.t">Final Decision Engine</h3><p data-t="f4.p">Every briefing ends with a ranked asset table, clearest bias, what to avoid today, and exact invalidation conditions.</p><span class="ftag" data-t="f4.ft">Market Ranking · Final Decision</span></div>
-      <div class="fc"><div class="fi">📅</div><h3 data-t="f5.t">Economic Calendar</h3><p data-t="f5.p">Live economic events with HIGH/MEDIUM/LOW impact ratings, linked to which of your 6 assets are affected — before the market moves.</p><span class="ftag" data-t="f5.ft">Live Data · Impact Rated</span></div>
-      <div class="fc"><div class="fi">📓</div><h3 data-t="f6.t">Trading Journal</h3><p data-t="f6.p">Log every trade with asset, direction, P&amp;L, leverage, and notes. Track win rate and total P&amp;L — built into the dashboard.</p><span class="ftag" data-t="f6.ft">Win Rate · P&amp;L Tracking</span></div>
+      <div class="fc"><div class="fi">🤖</div><h3 data-t="f1.t">Daily AI Briefings</h3><p data-t="f1.p">Every morning, Claude AI analyzes live market data across 6 assets and generates a full briefing with bias, regime, and key catalysts.</p><span class="ftag">Not signals — Intelligence</span></div>
+      <div class="fc"><div class="fi">📊</div><h3 data-t="f2.t">Multi-Timeframe Analysis</h3><p data-t="f2.p">4H, Daily, and Weekly bias for every asset. Know where each timeframe stands and how they align for high-confidence setups.</p><span class="ftag">4H · Daily · Weekly</span></div>
+      <div class="fc"><div class="fi">🔬</div><h3 data-t="f3.t">Deep Dive Analysis</h3><p data-t="f3.p">Probabilities, risk scores, key support/resistance levels, invalidation conditions, and a full technical read — for every asset, every day.</p><span class="ftag">Probabilities · Key Levels</span></div>
+      <div class="fc"><div class="fi">🎯</div><h3 data-t="f4.t">Final Decision Engine</h3><p data-t="f4.p">Every briefing ends with a ranked asset table, clearest bias, what to avoid today, and exact invalidation conditions.</p><span class="ftag">Market Ranking · Final Decision</span></div>
+      <div class="fc"><div class="fi">📅</div><h3 data-t="f5.t">Economic Calendar</h3><p data-t="f5.p">Live economic events with HIGH/MEDIUM/LOW impact ratings, linked to which of your 6 assets are affected — before the market moves.</p><span class="ftag">Live Data · Impact Rated</span></div>
+      <div class="fc"><div class="fi">📓</div><h3 data-t="f6.t">Trading Journal</h3><p data-t="f6.p">Log every trade with asset, direction, P&amp;L, leverage, and notes. Track win rate and total P&amp;L — built into the dashboard.</p><span class="ftag">Win Rate · P&amp;L Tracking</span></div>
     </div>
   </div>
 </section>
@@ -545,10 +498,10 @@ footer{background:var(--bg);border-top:1px solid var(--br2);padding:32px 20px}
     <div class="rv">
       <div class="sc" data-t="hw.sc">How It Works</div>
       <h2 class="sh" data-t="hw.sh">From data to decision in 60 seconds</h2>
-      <p class="sp" style="margin:0 auto" data-t="hw.sp">No complex setup. No signal subscriptions. Just open the dashboard and click Start Briefing.</p>
+      <p class="sp" style="margin:0 auto" data-t="hw.sp">No complex setup. No signal subscriptions. Join our Telegram and get your daily briefing.</p>
     </div>
     <div class="steps rv">
-      <div class="step"><div class="step-n">1</div><h3 data-t="s1.t">Log in</h3><p data-t="s1.p">Access from any device — mobile, tablet, or desktop. AI Trade Board is always ready.</p></div>
+      <div class="step"><div class="step-n">1</div><h3 data-t="s1.t">Join Telegram</h3><p data-t="s1.p">Click "Join Free on Telegram" — instant access to the AI Trade Board community and daily briefings.</p></div>
       <div class="step"><div class="step-n">2</div><h3 data-t="s2.t">Generate AI Briefing</h3><p data-t="s2.p">One click. Claude AI returns a full briefing with Deep Dive and market ranking for all 6 assets in under 60 seconds.</p></div>
       <div class="step"><div class="step-n">3</div><h3 data-t="s3.t">Trade with clarity</h3><p data-t="s3.p">Bias, probabilities, key levels, ranking, final decision. You make the trade. AI Trade Board gives you the intelligence.</p></div>
     </div>
@@ -570,7 +523,29 @@ footer{background:var(--bg);border-top:1px solid var(--br2);padding:32px 20px}
       <div class="a"><div class="ae">💶</div><div class="an">EUR/USD</div><div class="at">FOREX</div></div>
       <div class="a"><div class="ae">🇬🇧</div><div class="an">EUR/GBP</div><div class="at">FOREX</div></div>
     </div>
-    <p style="margin-top:22px;font-size:13px;color:var(--tx3)" data-t="a.road">Roadmap: BTC, ETH, Crude Oil, S&amp;P500 — coming soon.</p>
+    <p style="margin-top:20px;font-size:12px;color:var(--tx3)" data-t="a.road">Roadmap: BTC, ETH, Crude Oil, S&amp;P500 — coming soon.</p>
+  </div>
+</section>
+
+<!-- TELEGRAM JOIN SECTION — BIG BANNER -->
+<section class="tg-section" id="join">
+  <div class="tg-banner rv">
+    <div class="tg-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+    </div>
+    <h2 data-t="tg.h">Join Our <span>Telegram Community</span></h2>
+    <p data-t="tg.p">Get access to daily AI briefings, market analysis, and the full AI Trade Board dashboard — shared directly in our Telegram group. Free to join.</p>
+    <a href="https://t.me/+9UIMPylGLJc3Yzli" target="_blank" rel="noopener" class="tg-big-btn">
+      <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+      <span data-t="tg.btn">Join Free on Telegram Now →</span>
+    </a>
+    <div class="tg-perks">
+      <div class="tg-perk">✓ <span data-t="tg.p1">Daily AI Briefings</span></div>
+      <div class="tg-perk">✓ <span data-t="tg.p2">6 Asset Analysis</span></div>
+      <div class="tg-perk">✓ <span data-t="tg.p3">Deep Dive Included</span></div>
+      <div class="tg-perk">✓ <span data-t="tg.p4">Free to Join</span></div>
+      <div class="tg-perk">✓ <span data-t="tg.p5">127+ Active Traders</span></div>
+    </div>
   </div>
 </section>
 
@@ -598,7 +573,7 @@ footer{background:var(--bg);border-top:1px solid var(--br2);padding:32px 20px}
         <button class="tbtn" onclick="tNext()">›</button>
       </div>
     </div>
-    <p style="text-align:center;margin-top:18px;font-size:11px;color:var(--tx3)" data-t="t.disc">* Individual results may vary. Trading involves significant risk of loss.</p>
+    <p style="text-align:center;margin-top:16px;font-size:11px;color:var(--tx3)" data-t="t.disc">* Individual results may vary. Trading involves significant risk of loss.</p>
   </div>
 </section>
 
@@ -606,65 +581,16 @@ footer{background:var(--bg);border-top:1px solid var(--br2);padding:32px 20px}
 <div class="trust-strip">
   <div class="trust-inner">
     <div class="ti">🔒 <strong>Bank-grade security</strong></div>
-    <div class="ti">💳 <strong>PayPal protected</strong></div>
-    <div class="ti">🔄 <strong>Cancel anytime</strong></div>
-    <div class="ti">🎯 <strong>7-day free trial</strong></div>
-    <div class="ti">⭐ <strong style="color:var(--g)">4.9/5 rating</strong></div>
+    <div class="ti">📱 <strong>Telegram community</strong></div>
+    <div class="ti">🔬 <strong>Deep Dive analysis</strong></div>
     <div class="ti">🚫 <strong>No signals — AI intelligence</strong></div>
+    <div class="ti">⭐ <strong style="color:var(--g)">4.9/5 rating</strong></div>
+    <div class="ti">👥 <strong>127+ active traders</strong></div>
   </div>
 </div>
 
-<!-- PRICING -->
-<section class="sec" id="pricing" style="background:var(--bg2)">
-  <div class="ctr" style="text-align:center">
-    <div class="rv">
-      <div class="sc" data-t="p.sc">Simple Pricing</div>
-      <h2 class="sh" data-t="p.sh">Invest in your edge</h2>
-      <p class="sp" style="margin:0 auto" data-t="p.sp">One losing trade costs more than a full year of AI Trade Board.</p>
-    </div>
-    <div class="pricing-grid rv">
-      <div class="pc">
-        <div class="pn" data-t="p1.n">MONTHLY</div>
-        <div class="pp"><sup>$</sup>29.99<sub data-t="p1.per">/month</sub></div>
-        <div class="psub" data-t="p1.sub">Flexible. Cancel anytime.</div>
-        <ul class="pfl">
-          <li data-t="pf1">Daily AI Briefings (all 6 assets)</li>
-          <li data-t="pf2">Multi-timeframe analysis (4H/Daily/Weekly)</li>
-          <li data-t="pf3">Deep Dive: probabilities, key levels, invalidation</li>
-          <li data-t="pf4">Live economic calendar + impact ratings</li>
-          <li data-t="pf5">Trading journal &amp; P&amp;L tracker</li>
-          <li data-t="pf6m">7-day briefing history</li>
-          <li data-t="pf7">All devices: mobile, tablet, desktop</li>
-          <li data-t="pf8m">Email support</li>
-        </ul>
-        <button class="pcta sec" onclick="pay('monthly')" data-t="p1.cta">Start 7-Day Free Trial</button>
-      </div>
-      <div class="pc best">
-        <div class="bestt" data-t="best.t">BEST VALUE</div>
-        <div class="pn" data-t="p2.n">ANNUAL</div>
-        <div class="pp"><sup>$</sup>300<sub data-t="p2.per">/year</sub></div>
-        <div class="psave" data-t="p2.s">Save $59.88 — 2 months FREE</div>
-        <ul class="pfl">
-          <li data-t="pf1">Daily AI Briefings (all 6 assets)</li>
-          <li data-t="pf2">Multi-timeframe analysis (4H/Daily/Weekly)</li>
-          <li data-t="pf3">Deep Dive: probabilities, key levels, invalidation</li>
-          <li data-t="pf4">Live economic calendar + impact ratings</li>
-          <li data-t="pf5">Trading journal &amp; P&amp;L tracker</li>
-          <li data-t="pf6a">30-day briefing history</li>
-          <li data-t="pf7">All devices: mobile, tablet, desktop</li>
-          <li data-t="pf8a">Priority email support</li>
-          <li data-t="pf9a">Early access to new features</li>
-        </ul>
-        <button class="pcta pri" onclick="pay('annual')" data-t="p2.cta">Get Annual — Best Value 🔥</button>
-      </div>
-    </div>
-    <div class="ppn rv"><span class="ppl">PayPal</span><span data-t="pp.n">Secure payment — credit card, bank transfer, or PayPal balance</span></div>
-    <div class="pmb rv"><strong data-t="mb.t">7-Day Free Trial · No Credit Card Required</strong><br><span style="font-size:12px;color:var(--tx3)" data-t="mb.s">Try free for 7 days. Cancel easily — no questions asked.</span></div>
-  </div>
-</section>
-
 <!-- FAQ -->
-<section class="sec" id="faq" style="background:var(--bg)">
+<section class="sec" id="faq" style="background:var(--bg2)">
   <div class="ctr" style="text-align:center">
     <div class="rv"><div class="sc" data-t="fq.sc">FAQ</div><h2 class="sh" data-t="fq.sh">Frequently asked questions</h2></div>
     <div class="fl rv" id="faqList"></div>
@@ -674,17 +600,55 @@ footer{background:var(--bg);border-top:1px solid var(--br2);padding:32px 20px}
 <!-- FINAL CTA -->
 <section class="fcta">
   <div class="rv">
-    <h2><span data-t="fc.h">Stop guessing. Start</span><br><em data-t="fc.em">trading with intelligence.</em></h2>
-    <p data-t="fc.p">Join traders who use AI analysis to make better, faster decisions every day.</p>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <button class="bp" onclick="scroll2('pricing')" data-t="fc.c1">🚀 Start Free Trial — 7 Days</button>
-      <a href="https://trade-ai-dashboard.vercel.app" target="_blank" rel="noopener" class="bs" data-t="fc.c2">View Live Demo →</a>
+    <h2><span data-t="fc.h">Ready to trade smarter?</span><br><em data-t="fc.em">Join us on Telegram — free.</em></h2>
+    <p data-t="fc.p">Join 127+ traders who get daily AI analysis, Deep Dive breakdowns, and market intelligence directly in Telegram.</p>
+    <a href="https://t.me/+9UIMPylGLJc3Yzli" target="_blank" rel="noopener" class="tg-big-btn" style="margin:0 auto">
+      <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+      <span data-t="fc.btn">Join Free on Telegram →</span>
+    </a>
+    <a href="https://trade-ai-dashboard.vercel.app" target="_blank" rel="noopener" style="display:block;margin-top:14px;font-size:13px;color:var(--tx2);text-decoration:none" data-t="fc.demo">Or view the <span style="color:var(--g)">live dashboard demo</span> first →</a>
+    <div class="trust-row" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:32px">
+      <div style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--tx3)">🔒 <span data-t="tr1">Bank-grade security</span></div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--tx3)">🔬 <span data-t="tr2">Deep Dive analysis</span></div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--tx3)">📊 <span data-t="tr3">6 assets daily</span></div>
+      <div style="display:flex;align-items:center;gap:5px;font-size:12px;color:var(--tx3)">🚫 <span data-t="tr4">No signals — AI intelligence</span></div>
     </div>
-    <div class="trust-row">
-      <div class="trust-item">🔒 <span data-t="tr1">Bank-grade security</span></div>
-      <div class="trust-item">🔬 <span data-t="tr3">Deep Dive analysis</span></div>
-      <div class="trust-item">❌ <span data-t="tr4">Cancel anytime</span></div>
-      <div class="trust-item">💳 <span data-t="tr5">PayPal secure</span></div>
+  </div>
+</section>
+
+<!-- IMPRESSUM & DATENSCHUTZ -->
+<section class="impressum" id="impressum">
+  <div class="imp-inner">
+    <h3 data-t="imp.title">Impressum & Datenschutzerklärung</h3>
+    <div class="imp-cols">
+      <div class="imp-block">
+        <h4 data-t="imp.h1">Angaben gemäß § 5 TMG</h4>
+        <p>
+          <strong>LM Trade — AI Trade Board</strong><br>
+          Leandro Milosavljevic<br>
+          Unter den Linden 10<br>
+          10117 Berlin<br>
+          Deutschland<br><br>
+          <strong data-t="imp.tel">Telefon:</strong> +49 176 13515090<br>
+          <strong>E-Mail:</strong> <a href="mailto:support@aitradeboard.com">support@aitradeboard.com</a><br>
+          <strong>Website:</strong> <a href="https://lmtrade-shop.vercel.app">lmtrade-shop.vercel.app</a>
+        </p>
+      </div>
+      <div class="imp-block">
+        <h4 data-t="imp.h2">Haftungsausschluss</h4>
+        <p data-t="imp.disclaimer">Die auf dieser Website bereitgestellten Informationen dienen ausschließlich zu Informationszwecken und stellen keine Anlageberatung, Finanzberatung oder Handelsempfehlungen dar. Alle Inhalte basieren auf KI-gestützter Marktanalyse. Trading birgt erhebliche Verlustrisiken. Der Betreiber übernimmt keine Haftung für finanzielle Verluste, die aus der Nutzung dieser Informationen entstehen.</p>
+      </div>
+      <div class="imp-block">
+        <h4 data-t="imp.h3">Datenschutz (DSGVO)</h4>
+        <p data-t="imp.privacy">Wir erheben und verarbeiten personenbezogene Daten nur soweit dies für die Bereitstellung unserer Dienste erforderlich ist. Beim Besuch unserer Website werden keine Cookies ohne Einwilligung gesetzt. Für Fragen zum Datenschutz wenden Sie sich an: <a href="mailto:support@aitradeboard.com">support@aitradeboard.com</a>. Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Widerspruch Ihrer gespeicherten Daten.</p>
+      </div>
+      <div class="imp-block">
+        <h4 data-t="imp.h4">Urheberrecht & Risikohinweis</h4>
+        <p data-t="imp.copy">© 2026 LM Trade — AI Trade Board. Alle Inhalte dieser Website sind urheberrechtlich geschützt. Die vergangene Wertentwicklung ist kein Indikator für zukünftige Ergebnisse. Alle Handlungsempfehlungen basieren auf KI-Analysen und ersetzen keine individuelle Finanzberatung durch einen zugelassenen Berater.</p>
+      </div>
+    </div>
+    <div class="disclaimer-box">
+      <p><strong>⚠️ Risikohinweis / Risk Warning:</strong> Trading in financial markets involves significant risk of loss. AI Trade Board provides market intelligence and AI-powered analysis only — not financial advice. Past performance is not indicative of future results. Never trade with money you cannot afford to lose. By using AI Trade Board, you confirm that you understand and accept these risks.</p>
     </div>
   </div>
 </section>
@@ -695,42 +659,49 @@ footer{background:var(--bg);border-top:1px solid var(--br2);padding:32px 20px}
     <div class="foot-logo"><span class="w">AI</span> <span class="g">Trade Board</span></div>
     <div class="foot-links">
       <a href="#features" data-t="n.f">Features</a>
-      <a href="#pricing" data-t="n.p">Pricing</a>
-      <a href="https://trade-ai-dashboard.vercel.app" target="_blank" rel="noopener" data-t="ft.d">Live Dashboard</a>
-      <a href="mailto:support@aitradeboard.com">Contact</a>
+      <a href="#join" data-t="n.j">Telegram</a>
+      <a href="https://trade-ai-dashboard.vercel.app" target="_blank" rel="noopener" data-t="ft.d">Live Demo</a>
+      <a href="#impressum" data-t="ft.imp">Impressum</a>
+      <a href="mailto:support@aitradeboard.com">Kontakt</a>
     </div>
-    <div class="foot-copy" data-t="ft.c">© 2026 AI Trade Board — LM Trade. Not financial advice.</div>
+    <div class="foot-copy" data-t="ft.c">© 2026 AI Trade Board — LM Trade. Keine Anlageberatung.</div>
   </div>
 </footer>
 
-<!-- Sticky mobile CTA -->
+<!-- Sticky Telegram CTA — mobile -->
 <div id="sticky-cta">
-  <button onclick="scroll2('pricing')" data-t="n.cta">🚀 Start Free Trial — $29.99/month →</button>
+  <a href="https://t.me/+9UIMPylGLJc3Yzli" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#fff;flex-shrink:0"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+    <span data-t="n.tg">Join Free on Telegram →</span>
+  </a>
 </div>
 <script>
 const T={
 en:{
-'n.f':'Features','n.h':'How it works','n.p':'Pricing','n.q':'FAQ',
-'n.cta':'Start Free Trial →',
-'h.chip':'⚡ AI-Powered Market Intelligence',
-'h.h1':'Trade Smarter with','h.em':'Real AI Analysis',
+'n.f':'Features','n.h':'How it works','n.j':'Join Telegram','n.q':'FAQ',
+'n.tg':'Join Free on Telegram',
+'h.chip':'⚡ AI-Powered Market Intelligence','h.h1':'Trade Smarter with','h.em':'Real AI Analysis',
 'h.sub':'Professional market intelligence for Forex, Gold, Nasdaq & more. Daily AI briefings, Deep Dive analysis, 6-asset ranking — not signals, intelligence.',
 'h.sp':'Trusted by 127+ traders in 18 countries',
-'h.c1':'🚀 Start Free Trial','h.c2':'View Live Demo →',
+'h.cta':'Join Free on Telegram →','h.demo':'Or view the live demo first →',
 'h.s1':'Assets Daily','h.s2':'AI Confidence','h.s3':'Briefing Time','h.s4':'Access',
 'h.disc':'* AI-powered recommendations only. Not financial advice. Trading involves risk.',
 'f.sc':'Why AI Trade Board','f.sh':'Everything you need to trade with confidence','f.sp':'Built for serious traders who want AI intelligence — not random signals.',
-'f1.t':'Daily AI Briefings','f1.p':'Every morning, Claude AI analyzes live market data across 6 assets and generates a full briefing with bias, regime, and key catalysts.','f1.ft':'Not signals — Intelligence',
-'f2.t':'Multi-Timeframe Analysis','f2.p':'4H, Daily, and Weekly bias for every asset. Know where each timeframe stands and how they align for high-confidence setups.','f2.ft':'4H · Daily · Weekly',
-'f3.t':'Deep Dive Analysis','f3.p':'Probabilities, risk scores, key support/resistance levels, invalidation conditions, and a full technical read — for every asset, every day.','f3.ft':'Probabilities · Key Levels',
-'f4.t':'Final Decision Engine','f4.p':'Every briefing ends with a ranked asset table, clearest bias, what to avoid today, and exact invalidation conditions.','f4.ft':'Market Ranking · Final Decision',
-'f5.t':'Economic Calendar','f5.p':'Live economic events with HIGH/MEDIUM/LOW impact ratings, linked to which assets are affected — before the market moves.','f5.ft':'Live Data · Impact Rated',
-'f6.t':'Trading Journal','f6.p':'Log every trade with asset, direction, P&L, leverage, and notes. Track win rate and total P&L — built into the dashboard.','f6.ft':'Win Rate · P&L Tracking',
-'hw.sc':'How It Works','hw.sh':'From data to decision in 60 seconds','hw.sp':'No complex setup. No signal subscriptions. Just open the dashboard and click Start Briefing.',
-'s1.t':'Log in','s1.p':'Access from any device — mobile, tablet, or desktop. AI Trade Board is always ready.',
+'f1.t':'Daily AI Briefings','f1.p':'Every morning, Claude AI analyzes live market data across 6 assets and generates a full briefing with bias, regime, and key catalysts.',
+'f2.t':'Multi-Timeframe Analysis','f2.p':'4H, Daily, and Weekly bias for every asset. Know where each timeframe stands and how they align for high-confidence setups.',
+'f3.t':'Deep Dive Analysis','f3.p':'Probabilities, risk scores, key support/resistance levels, invalidation conditions, and a full technical read — for every asset, every day.',
+'f4.t':'Final Decision Engine','f4.p':'Every briefing ends with a ranked asset table, clearest bias, what to avoid today, and exact invalidation conditions.',
+'f5.t':'Economic Calendar','f5.p':'Live economic events with HIGH/MEDIUM/LOW impact ratings, linked to which of your 6 assets are affected — before the market moves.',
+'f6.t':'Trading Journal','f6.p':'Log every trade with asset, direction, P&L, leverage, and notes. Track win rate and total P&L — built into the dashboard.',
+'hw.sc':'How It Works','hw.sh':'From data to decision in 60 seconds','hw.sp':'No complex setup. No signal subscriptions. Join our Telegram and get your daily briefing.',
+'s1.t':'Join Telegram','s1.p':'Click "Join Free on Telegram" — instant access to the AI Trade Board community and daily briefings.',
 's2.t':'Generate AI Briefing','s2.p':'One click. Claude AI returns a full briefing with Deep Dive and market ranking for all 6 assets in under 60 seconds.',
 's3.t':'Trade with clarity','s3.p':'Bias, probabilities, key levels, ranking, final decision. You make the trade. AI Trade Board gives you the intelligence.',
 'a.sc':'6 Assets — Daily Analysis','a.sh':'Every major market covered','a.road':'Roadmap: BTC, ETH, Crude Oil, S&P500 — coming soon.',
+'tg.h':'Join Our Telegram Community',
+'tg.p':'Get access to daily AI briefings, market analysis, and the full AI Trade Board dashboard — shared directly in our Telegram group. Free to join.',
+'tg.btn':'Join Free on Telegram Now →',
+'tg.p1':'Daily AI Briefings','tg.p2':'6 Asset Analysis','tg.p3':'Deep Dive Included','tg.p4':'Free to Join','tg.p5':'127+ Active Traders',
 't.sc':'Trusted by Traders','t.sh':'Real traders. Real results.','t.sp':'Results vary. AI Trade Board provides market intelligence, not financial advice.',
 't1.q':'"Before AI Trade Board, I spent 2 hours analyzing charts every morning. Now I hit Start Briefing and have a complete picture in 60 seconds. The Final Decision section alone is worth every cent."','t1.r':'Forex Trader · Germany','t1.b':'+38% better timing',
 't2.q':'"The multi-timeframe bias display is exactly what I needed. I see in seconds whether 4H, Daily and Weekly align — no more counter-trend mistakes. The confidence score keeps me disciplined."','t2.r':'Swing Trader · Switzerland','t2.b':'Win rate 48% → 63%',
@@ -740,101 +711,99 @@ en:{
 't6.q':'"The Trading Journal with P&L tracking is brilliant. I see patterns in my trades compared to AI recommendations. My discipline has improved massively."','t6.r':'Day Trader · France','t6.b':'Losses reduced by 40%',
 't7.q':'"Finally a tool that respects my intelligence. No signal spam, no hype — just clean, structured analysis. The Market Ranking is my morning ritual now."','t7.r':'Prop Trader · Denmark','t7.b':'Best ROI tool in my stack',
 't.disc':'* Individual results may vary. Trading involves significant risk of loss.',
-'p.sc':'Simple Pricing','p.sh':'Invest in your edge','p.sp':'One losing trade costs more than a full year of AI Trade Board.',
-'p1.n':'MONTHLY','p1.per':'/month','p1.sub':'Flexible. Cancel anytime.','p1.cta':'Start 7-Day Free Trial',
-'p2.n':'ANNUAL','p2.per':'/year','p2.s':'Save $59.88 — 2 months FREE','p2.cta':'Get Annual — Best Value 🔥',
-'best.t':'BEST VALUE',
-'pf1':'Daily AI Briefings (all 6 assets)','pf2':'Multi-timeframe analysis (4H/Daily/Weekly)',
-'pf3':'Deep Dive: probabilities, key levels, invalidation','pf4':'Live economic calendar + impact ratings',
-'pf5':'Trading journal & P&L tracker','pf6m':'7-day briefing history','pf6a':'30-day briefing history',
-'pf7':'All devices: mobile, tablet, desktop','pf8m':'Email support','pf8a':'Priority email support','pf9a':'Early access to new features',
-'pp.n':'Secure payment — credit card, bank transfer, or PayPal balance',
-'mb.t':'7-Day Free Trial · No Credit Card Required','mb.s':'Try free for 7 days. Cancel easily — no questions asked.',
 'fq.sc':'FAQ','fq.sh':'Frequently asked questions',
-'fc.h':'Stop guessing. Start','fc.em':'trading with intelligence.',
-'fc.p':'Join traders who use AI analysis to make better, faster decisions every day.',
-'fc.c1':'🚀 Start Free Trial — 7 Days','fc.c2':'View Live Demo →',
-'tr1':'Bank-grade security','tr3':'Deep Dive analysis','tr4':'Cancel anytime','tr5':'PayPal secure',
-'ft.d':'Live Dashboard','ft.c':'© 2026 AI Trade Board — LM Trade. Not financial advice.'
+'fc.h':'Ready to trade smarter?','fc.em':'Join us on Telegram — free.',
+'fc.p':'Join 127+ traders who get daily AI analysis, Deep Dive breakdowns, and market intelligence directly in Telegram.',
+'fc.btn':'Join Free on Telegram →','fc.demo':'Or view the live dashboard demo first →',
+'tr1':'Bank-grade security','tr2':'Deep Dive analysis','tr3':'6 assets daily','tr4':'No signals — AI intelligence',
+'imp.title':'Impressum & Datenschutzerklärung',
+'imp.h1':'Angaben gemäß § 5 TMG','imp.tel':'Telefon:',
+'imp.h2':'Haftungsausschluss',
+'imp.disclaimer':'Die auf dieser Website bereitgestellten Informationen dienen ausschließlich zu Informationszwecken und stellen keine Anlageberatung dar. Alle Inhalte basieren auf KI-gestützter Marktanalyse. Trading birgt erhebliche Verlustrisiken.',
+'imp.h3':'Datenschutz (DSGVO)',
+'imp.privacy':'Wir erheben personenbezogene Daten nur soweit erforderlich. Für Fragen: support@aitradeboard.com. Sie haben das Recht auf Auskunft, Berichtigung und Löschung Ihrer Daten.',
+'imp.h4':'Urheberrecht & Risikohinweis',
+'imp.copy':'© 2026 LM Trade — AI Trade Board. Alle Inhalte sind urheberrechtlich geschützt. Vergangene Wertentwicklung ist kein Indikator für zukünftige Ergebnisse.',
+'ft.d':'Live Demo','ft.imp':'Impressum','ft.c':'© 2026 AI Trade Board — LM Trade. Keine Anlageberatung.'
 },
 de:{
-'n.f':'Features','n.h':'So funktionierts','n.p':'Preise','n.q':'FAQ',
-'n.cta':'Gratis testen →',
-'h.chip':'⚡ KI-gestützte Marktanalyse',
-'h.h1':'Smarter traden mit','h.em':'Echter KI-Analyse',
+'n.f':'Features','n.h':'So funktionierts','n.j':'Telegram beitreten','n.q':'FAQ',
+'n.tg':'Kostenlos auf Telegram beitreten',
+'h.chip':'⚡ KI-gestützte Marktanalyse','h.h1':'Smarter traden mit','h.em':'Echter KI-Analyse',
 'h.sub':'Professionelle Marktintelligenz für Forex, Gold, Nasdaq & mehr. Tägliche KI-Briefings, Deep Dive Analyse, 6-Asset-Ranking — keine Signale, echte Intelligenz.',
 'h.sp':'Vertraut von 127+ Tradern in 18 Ländern',
-'h.c1':'🚀 Gratis testen','h.c2':'Live Demo ansehen →',
+'h.cta':'Kostenlos auf Telegram beitreten →','h.demo':'Oder zuerst die Live-Demo ansehen →',
 'h.s1':'Assets täglich','h.s2':'KI-Konfidenz','h.s3':'Briefing-Zeit','h.s4':'Zugang',
 'h.disc':'* Nur KI-Handlungsempfehlungen. Keine Anlageberatung. Trading birgt Verlustrisiken.',
 'f.sc':'Warum AI Trade Board','f.sh':'Alles was du brauchst um mit Überzeugung zu traden','f.sp':'Für ernsthafte Trader die KI-Intelligenz wollen — keine zufälligen Signale.',
-'f1.t':'Tägliche KI-Briefings','f1.p':'Jeden Morgen analysiert Claude KI Live-Marktdaten für 6 Assets und erstellt ein vollständiges Briefing mit Bias, Regime und wichtigsten Katalysatoren.','f1.ft':'Keine Signale — Intelligenz',
-'f2.t':'Multi-Timeframe-Analyse','f2.p':'4H-, Daily- und Weekly-Bias für jedes Asset. Sieh genau wo jeder Zeitrahmen steht und wie sie für hochwertige Setups ausgerichtet sind.','f2.ft':'4H · Daily · Weekly',
-'f3.t':'Deep Dive Analyse','f3.p':'Wahrscheinlichkeiten, Risiko-Scores, Support/Resistance-Niveaus, Invalidierungsbedingungen und ein vollständiges technisches Bild — täglich für jedes Asset.','f3.ft':'Wahrscheinlichkeiten · Niveaus',
-'f4.t':'Final Decision Engine','f4.p':'Jedes Briefing endet mit Ranking-Tabelle, klarstem Bias, was heute zu meiden ist und genauen Invalidierungsbedingungen.','f4.ft':'Markt-Ranking · Finale Entscheidung',
-'f5.t':'Wirtschaftskalender','f5.p':'Live-Events mit HOCH/MITTEL/NIEDRIG Relevanz, verknüpft mit den betroffenen Assets — bevor der Markt reagiert.','f5.ft':'Live-Daten · Relevanz-bewertet',
-'f6.t':'Trading Journal','f6.p':'Logge jeden Trade mit Asset, Richtung, P&L, Hebel und Notizen. Verfolge Gewinnrate und Gesamt-P&L — direkt im Dashboard.','f6.ft':'Gewinnrate · P&L-Tracking',
-'hw.sc':'So funktioniert es','hw.sh':'Von Daten zur Entscheidung in 60 Sekunden','hw.sp':'Kein Setup. Keine Signal-Abos. Dashboard öffnen, Briefing starten.',
-'s1.t':'Einloggen','s1.p':'Von jedem Gerät — Handy, Tablet oder Desktop. AI Trade Board ist immer bereit.',
+'f1.t':'Tägliche KI-Briefings','f1.p':'Jeden Morgen analysiert Claude KI Live-Marktdaten für 6 Assets und erstellt ein vollständiges Briefing mit Bias, Regime und wichtigsten Katalysatoren.',
+'f2.t':'Multi-Timeframe-Analyse','f2.p':'4H-, Daily- und Weekly-Bias für jedes Asset. Sieh genau wo jeder Zeitrahmen steht und wie sie für hochwertige Setups ausgerichtet sind.',
+'f3.t':'Deep Dive Analyse','f3.p':'Wahrscheinlichkeiten, Risiko-Scores, Support/Resistance-Niveaus, Invalidierungsbedingungen und ein vollständiges technisches Bild — täglich für jedes Asset.',
+'f4.t':'Final Decision Engine','f4.p':'Jedes Briefing endet mit Ranking-Tabelle, klarstem Bias, was heute zu meiden ist und genauen Invalidierungsbedingungen.',
+'f5.t':'Wirtschaftskalender','f5.p':'Live-Events mit HOCH/MITTEL/NIEDRIG Relevanz, verknüpft mit den betroffenen Assets — bevor der Markt reagiert.',
+'f6.t':'Trading Journal','f6.p':'Logge jeden Trade mit Asset, Richtung, P&L, Hebel und Notizen. Verfolge Gewinnrate und Gesamt-P&L — direkt im Dashboard.',
+'hw.sc':'So funktioniert es','hw.sh':'Von Daten zur Entscheidung in 60 Sekunden','hw.sp':'Kein Setup. Keine Signal-Abos. Tritt unserem Telegram bei und erhalte dein tägliches Briefing.',
+'s1.t':'Telegram beitreten','s1.p':'Klicke auf "Kostenlos beitreten" — sofortiger Zugang zur AI Trade Board Community und täglichen Briefings.',
 's2.t':'KI-Briefing generieren','s2.p':'Ein Klick. Claude KI liefert Briefing, Deep Dive und Markt-Ranking für alle 6 Assets in unter 60 Sekunden.',
 's3.t':'Mit Klarheit traden','s3.p':'Bias, Wahrscheinlichkeiten, Niveaus, Ranking, finale Entscheidung. Du machst den Trade. AI Trade Board gibt dir die Intelligenz.',
 'a.sc':'6 Assets — Tägliche Analyse','a.sh':'Alle wichtigen Märkte abgedeckt','a.road':'Roadmap: BTC, ETH, Rohöl, S&P500 — demnächst.',
+'tg.h':'Tritt unserer Telegram-Community bei',
+'tg.p':'Erhalte Zugang zu täglichen KI-Briefings, Marktanalysen und dem vollständigen AI Trade Board Dashboard — direkt in unserer Telegram-Gruppe. Kostenlos.',
+'tg.btn':'Jetzt kostenlos auf Telegram beitreten →',
+'tg.p1':'Tägliche KI-Briefings','tg.p2':'6 Asset Analysen','tg.p3':'Deep Dive inklusive','tg.p4':'Kostenlos','tg.p5':'127+ aktive Trader',
 't.sc':'Von Tradern vertraut','t.sh':'Echte Trader. Echte Ergebnisse.','t.sp':'Ergebnisse variieren. AI Trade Board liefert Marktintelligenz, keine Anlageberatung.',
-'t1.q':'"Vor AI Trade Board verbrachte ich 2 Stunden täglich mit Charts. Jetzt klicke ich auf Briefing starten und habe in 60 Sekunden das komplette Bild. Der Final Decision Bereich allein ist jeden Cent wert."','t1.r':'Forex Trader · Deutschland','t1.b':'+38% besseres Timing',
-'t2.q':'"Die Multi-Timeframe-Bias-Anzeige ist genau was ich brauchte. Ich sehe sofort ob 4H, Daily und Weekly ausgerichtet sind — keine Gegentrend-Fehler mehr."','t2.r':'Swing Trader · Schweiz','t2.b':'Gewinnrate 48% → 63%',
-'t3.q':'"Der Wirtschaftskalender mit Asset-Impact ist ein Game-Changer. Ich weiß welche Events Gold vs EUR/USD bewegen und bin korrekt positioniert bevor die Volatilität kommt."','t3.r':'Rohstoff-Trader · UK','t3.b':'4 große Verlust-Trades vermieden',
-'t4.q':'"Der Deep Dive hat alles verändert. Die exakten Resistance-, Support- und Invalidierungslevels zu sehen — das ist echte Analyse. Kein anderes Tool gibt mir das."','t4.r':'Professioneller Trader · Österreich','t4.b':'3x bessere Risk/Reward Ratios',
-'t5.q':'"Ich war skeptisch bei KI-Tools, aber AI Trade Board ist anders. Keine Signale — sondern die Begründung. Das Wahrscheinlichkeits-Breakdown hilft mir Positionen korrekt zu dimensionieren."','t5.r':'Teilzeit-Trader · Niederlande','t5.b':'8 Wochen in Folge profitabel',
-'t6.q':'"Das Trading Journal mit P&L-Tracking ist brilliant. Ich erkenne Muster in meinen Trades und vergleiche sie mit den KI-Empfehlungen. Meine Disziplin hat sich massiv verbessert."','t6.r':'Day Trader · Frankreich','t6.b':'Verlust-Trades um 40% reduziert',
-'t7.q':'"Endlich ein Tool das meine Intelligenz respektiert. Kein Signal-Spam, kein Hype — nur saubere strukturierte Analyse. Das Markt-Ranking ist jetzt mein Morgenritual."','t7.r':'Prop Trader · Dänemark','t7.b':'Bestes ROI-Tool in meinem Stack',
+'t1.q':'"Vor AI Trade Board verbrachte ich 2 Stunden täglich mit Charts. Jetzt klicke ich auf Briefing starten und habe in 60 Sekunden das komplette Bild."','t1.r':'Forex Trader · Deutschland','t1.b':'+38% besseres Timing',
+'t2.q':'"Die Multi-Timeframe-Bias-Anzeige ist genau was ich brauchte. Keine Gegentrend-Fehler mehr. Der Konfidenz-Score hält mich diszipliniert."','t2.r':'Swing Trader · Schweiz','t2.b':'Gewinnrate 48% → 63%',
+'t3.q':'"Der Wirtschaftskalender mit Asset-Impact ist ein Game-Changer. Ich bin korrekt positioniert bevor die Volatilität kommt."','t3.r':'Rohstoff-Trader · UK','t3.b':'4 große Verlust-Trades vermieden',
+'t4.q':'"Der Deep Dive hat alles verändert. Die exakten Niveaus und Invalidierungsbedingungen zu sehen — das ist echte Analyse."','t4.r':'Professioneller Trader · Österreich','t4.b':'3x bessere Risk/Reward Ratios',
+'t5.q':'"AI Trade Board gibt keine Signale — sondern die Begründung. Das Wahrscheinlichkeits-Breakdown hilft mir Positionen korrekt zu dimensionieren."','t5.r':'Teilzeit-Trader · Niederlande','t5.b':'8 Wochen in Folge profitabel',
+'t6.q':'"Das Trading Journal mit P&L-Tracking ist brilliant. Meine Disziplin hat sich massiv verbessert."','t6.r':'Day Trader · Frankreich','t6.b':'Verlust-Trades um 40% reduziert',
+'t7.q':'"Endlich ein Tool das meine Intelligenz respektiert. Kein Signal-Spam — nur saubere Analyse. Das Markt-Ranking ist mein Morgenritual."','t7.r':'Prop Trader · Dänemark','t7.b':'Bestes ROI-Tool in meinem Stack',
 't.disc':'* Individuelle Ergebnisse können variieren. Trading birgt erhebliche Verlustrisiken.',
-'p.sc':'Einfache Preise','p.sh':'Investiere in deinen Vorsprung','p.sp':'Ein einziger Verlust-Trade kostet mehr als ein volles Jahr AI Trade Board.',
-'p1.n':'MONATLICH','p1.per':'/Monat','p1.sub':'Flexibel. Jederzeit kündbar.','p1.cta':'7 Tage gratis testen',
-'p2.n':'JÄHRLICH','p2.per':'/Jahr','p2.s':'Spare 59,88$ — 2 Monate GRATIS','p2.cta':'Jahresabo — Bestes Angebot 🔥',
-'best.t':'BESTES ANGEBOT',
-'pf1':'Tägliche KI-Briefings (alle 6 Assets)','pf2':'Multi-Timeframe-Analyse (4H/Daily/Weekly)',
-'pf3':'Deep Dive: Wahrscheinlichkeiten, Niveaus, Invalidierung','pf4':'Live-Wirtschaftskalender + Relevanz',
-'pf5':'Trading Journal & P&L-Tracker','pf6m':'7 Tage Briefing-Verlauf','pf6a':'30 Tage Briefing-Verlauf',
-'pf7':'Alle Geräte: Handy, Tablet, Desktop','pf8m':'E-Mail-Support','pf8a':'Prioritäts-Support','pf9a':'Früher Zugang zu neuen Features',
-'pp.n':'Sichere Zahlung — Kreditkarte, Banküberweisung oder PayPal',
-'mb.t':'7 Tage Gratis-Test · Keine Kreditkarte nötig','mb.s':'7 Tage kostenlos. Einfach kündigen.',
 'fq.sc':'FAQ','fq.sh':'Häufig gestellte Fragen',
-'fc.h':'Schluss mit Raten. Start','fc.em':'mit Trading-Intelligenz.',
-'fc.p':'Schließ dich Tradern an die täglich bessere Entscheidungen treffen.',
-'fc.c1':'🚀 7 Tage gratis testen','fc.c2':'Live Demo ansehen →',
-'tr1':'Bank-grade Sicherheit','tr3':'Deep Dive Analyse','tr4':'Jederzeit kündbar','tr5':'PayPal sicher',
-'ft.d':'Live Dashboard','ft.c':'© 2026 AI Trade Board — LM Trade. Keine Anlageberatung.'
+'fc.h':'Bereit smarter zu traden?','fc.em':'Tritt Telegram bei — kostenlos.',
+'fc.p':'Schließ dich 127+ Tradern an, die täglich KI-Analysen, Deep Dive Breakdowns und Marktintelligenz direkt auf Telegram erhalten.',
+'fc.btn':'Jetzt kostenlos auf Telegram beitreten →','fc.demo':'Oder zuerst die Live-Dashboard-Demo ansehen →',
+'tr1':'Bank-grade Sicherheit','tr2':'Deep Dive Analyse','tr3':'6 Assets täglich','tr4':'Keine Signale — KI-Intelligenz',
+'imp.title':'Impressum & Datenschutzerklärung',
+'imp.h1':'Angaben gemäß § 5 TMG','imp.tel':'Telefon:',
+'imp.h2':'Haftungsausschluss',
+'imp.disclaimer':'Die auf dieser Website bereitgestellten Informationen stellen keine Anlageberatung dar. Trading birgt erhebliche Verlustrisiken. Der Betreiber übernimmt keine Haftung für finanzielle Verluste.',
+'imp.h3':'Datenschutz (DSGVO)',
+'imp.privacy':'Wir erheben personenbezogene Daten nur soweit erforderlich. Für Datenschutzfragen: support@aitradeboard.com.',
+'imp.h4':'Urheberrecht & Risikohinweis',
+'imp.copy':'© 2026 LM Trade — AI Trade Board. Alle Inhalte sind urheberrechtlich geschützt. Keine Anlageberatung.',
+'ft.d':'Live Demo','ft.imp':'Impressum','ft.c':'© 2026 AI Trade Board — LM Trade. Keine Anlageberatung.'
 }};
 
 const FAQS={
 en:[
 {q:'Is this financial advice?',a:'No. AI Trade Board provides AI-powered market intelligence and recommendations based on technical and macro analysis — not financial advice. You make all trading decisions yourself.'},
 {q:'What is the difference between signals and recommendations?',a:'Signals say buy/sell at price X. AI Trade Board gives you intelligence: bias, regime, timeframe alignment, probabilities, key levels, and risk conditions. You decide when and how to act.'},
-{q:'What is the Deep Dive feature?',a:'Deep Dive provides deeper analysis for each asset: bull/bear/range probabilities, risk scores, key support and resistance levels, invalidation conditions, and a full technical read. Updated with every briefing.'},
-{q:'How often is the briefing updated?',a:'You generate a fresh briefing with one click — as often as you like. All 6 assets get a complete new analysis with Deep Dive every time.'},
-{q:'Which assets are covered?',a:'Gold (XAUUSD), Silver (XAGUSD), NAS100 (Nasdaq), US30 (Dow Jones), EUR/USD, EUR/GBP. Roadmap: BTC, ETH, Crude Oil, S&P500.'},
-{q:'Can I cancel anytime?',a:'Yes. Cancel at any time — no questions asked, no hidden fees. Access continues until the end of your billing period.'},
-{q:'How does PayPal payment work?',a:'Payments are processed securely through PayPal. Use PayPal balance, credit card, or bank transfer. No credit card required for the 7-day free trial.'},
-{q:'Is my data secure and private?',a:'Yes. CSP headers, XSS protection, rate-limited login, encrypted data handling. We never share or sell your data.'},
+{q:'What is the Deep Dive feature?',a:'Deep Dive provides deeper analysis: bull/bear/range probabilities, risk scores, key support and resistance levels, invalidation conditions, and a full technical read. Updated with every briefing.'},
+{q:'How do I access the dashboard?',a:'Join our Telegram group (link above) to get access to daily briefings and the dashboard. You can also view the live demo at trade-ai-dashboard.vercel.app.'},
+{q:'Which assets are analyzed?',a:'Gold (XAUUSD), Silver (XAGUSD), NAS100 (Nasdaq), US30 (Dow Jones), EUR/USD, EUR/GBP. Roadmap: BTC, ETH, Crude Oil, S&P500.'},
+{q:'Is my data secure?',a:'Yes. CSP headers, XSS protection, rate-limited login, encrypted data handling. We never share or sell your data.'},
+{q:'Is the Telegram group really free?',a:'Yes. Joining our Telegram group is completely free. You get access to daily AI briefings and market analysis. Premium features are available for subscribers.'},
+{q:'Does it work on mobile?',a:'Yes. The dashboard is fully responsive on all devices. Access your daily briefing from anywhere via Telegram or the web app.'},
 ],
 de:[
 {q:'Ist das Anlageberatung?',a:'Nein. AI Trade Board bietet KI-gestützte Marktintelligenz — keine Anlageberatung. Du triffst alle Trading-Entscheidungen selbst.'},
-{q:'Was ist der Unterschied zwischen Signalen und Empfehlungen?',a:'Signale sagen kaufe/verkaufe zu Preis X. AI Trade Board gibt dir Intelligenz: Bias, Regime, Timeframe-Ausrichtung, Wahrscheinlichkeiten und Risikobedingungen. Du entscheidest.'},
-{q:'Was ist die Deep Dive Funktion?',a:'Deep Dive bietet tiefere Analyse: Bull/Bear/Range-Wahrscheinlichkeiten, Risiko-Scores, Support- und Resistance-Niveaus, Invalidierungsbedingungen und ein vollständiges technisches Bild.'},
-{q:'Wie oft wird das Briefing aktualisiert?',a:'Du generierst mit einem Klick ein neues Briefing — so oft du möchtest. Alle 6 Assets erhalten jedes Mal eine frische Analyse mit Deep Dive.'},
-{q:'Welche Assets werden abgedeckt?',a:'Gold (XAUUSD), Silber (XAGUSD), NAS100 (Nasdaq), US30 (Dow Jones), EUR/USD, EUR/GBP. Roadmap: BTC, ETH, Rohöl, S&P500.'},
-{q:'Kann ich jederzeit kündigen?',a:'Ja. Kündige jederzeit — ohne Fragen, ohne versteckte Gebühren.'},
-{q:'Wie funktioniert PayPal-Zahlung?',a:'Sicher über PayPal. Kreditkarte, Banküberweisung oder PayPal-Guthaben. Für den Gratis-Test kein Konto nötig.'},
+{q:'Was ist der Unterschied zwischen Signalen und Empfehlungen?',a:'Signale sagen kaufe/verkaufe zu Preis X. AI Trade Board gibt dir Intelligenz: Bias, Regime, Wahrscheinlichkeiten und Risikobedingungen. Du entscheidest.'},
+{q:'Was ist die Deep Dive Funktion?',a:'Deep Dive bietet tiefere Analyse: Wahrscheinlichkeiten, Risiko-Scores, Support/Resistance-Niveaus, Invalidierungsbedingungen und ein vollständiges technisches Bild.'},
+{q:'Wie erhalte ich Zugang zum Dashboard?',a:'Tritt unserer Telegram-Gruppe bei (Link oben) für tägliche Briefings und Dashboard-Zugang. Die Live-Demo ist unter trade-ai-dashboard.vercel.app verfügbar.'},
+{q:'Welche Assets werden analysiert?',a:'Gold (XAUUSD), Silber (XAGUSD), NAS100 (Nasdaq), US30 (Dow Jones), EUR/USD, EUR/GBP. Roadmap: BTC, ETH, Rohöl, S&P500.'},
 {q:'Sind meine Daten sicher?',a:'Ja. CSP-Header, XSS-Schutz, Rate-Limiting, verschlüsselte Daten. Wir teilen oder verkaufen deine Daten nie.'},
+{q:'Ist die Telegram-Gruppe wirklich kostenlos?',a:'Ja. Der Beitritt zur Telegram-Gruppe ist komplett kostenlos. Du erhältst tägliche KI-Briefings und Marktanalysen. Premium-Features sind für Abonnenten verfügbar.'},
+{q:'Funktioniert es auf dem Handy?',a:'Ja. Das Dashboard ist vollständig responsiv. Greife überall auf dein tägliches Briefing zu — via Telegram oder Web-App.'},
 ]};
 
 let lang='en';
-
 function setLang(l){
   lang=l;
   ['lbEN','lbDE','mobEN','mobDE'].forEach(id=>{
     const el=document.getElementById(id);
-    if(el) el.classList.toggle('on', id.endsWith(l==='en'?'EN':'DE'));
+    if(el) el.classList.toggle('on',id.endsWith(l==='en'?'EN':'DE'));
   });
   document.querySelectorAll('[data-t]').forEach(el=>{
     const v=T[l][el.getAttribute('data-t')];
@@ -843,58 +812,31 @@ function setLang(l){
   renderFAQ(l);
   updateCarousel();
 }
-
 function renderFAQ(l){
-  document.getElementById('faqList').innerHTML=FAQS[l].map(f=>`
-    <div class="fitem" onclick="this.classList.toggle('open')">
-      <div class="fq"><span>${f.q}</span><span class="ftog">+</span></div>
-      <div class="fa">${f.a}</div>
-    </div>`).join('');
+  document.getElementById('faqList').innerHTML=FAQS[l].map(f=>`<div class="fitem" onclick="this.classList.toggle('open')"><div class="fq"><span>${f.q}</span><span class="ftog">+</span></div><div class="fa">${f.a}</div></div>`).join('');
 }
+function toggleMob(){document.getElementById('mobMenu').classList.toggle('open');}
 
-function pay(plan){
-  const m={
-    en:{monthly:'Monthly Plan — $29.99/month\n\n✓ 7-Day Free Trial\n✓ Deep Dive included\n✓ Cancel anytime\n\nPayPal link coming soon!\nContact: support@aitradeboard.com',
-        annual:'Annual Plan — $300/year (Save $59.88!)\n\n✓ 7-Day Free Trial\n✓ 2 months FREE\n\nPayPal link coming soon!\nContact: support@aitradeboard.com'},
-    de:{monthly:'Monats-Plan — 29,99$/Monat\n\n✓ 7 Tage Gratis-Test\n✓ Deep Dive inklusive\n✓ Jederzeit kündbar\n\nPayPal-Link kommt bald!\nKontakt: support@aitradeboard.com',
-        annual:'Jahres-Plan — 300$/Jahr (Spare 59,88$!)\n\n✓ 7 Tage Gratis-Test\n✓ 2 Monate GRATIS\n\nPayPal-Link kommt bald!\nKontakt: support@aitradeboard.com'}
-  };
-  alert(m[lang][plan]);
-}
-
-function scroll2(id){
-  const el=document.getElementById(id)||document.querySelector('#'+id);
-  if(el) el.scrollIntoView({behavior:'smooth'});
-}
-
-function toggleMob(){
-  document.getElementById('mobMenu').classList.toggle('open');
-}
-
-/* Carousel */
-let tIdx=0;
-const TOTAL=7;
+let tIdx=0; const TOTAL=7;
 function getVis(){return window.innerWidth<600?1:window.innerWidth<900?2:3}
 function updateCarousel(){
   const track=document.getElementById('ttrack');
-  if(!track) return;
+  if(!track)return;
   const cards=track.querySelectorAll('.tc');
-  if(!cards.length) return;
+  if(!cards.length)return;
   const vis=getVis();
   const max=Math.max(0,TOTAL-vis);
-  if(tIdx>max) tIdx=max;
-  const w=cards[0].offsetWidth+18;
+  if(tIdx>max)tIdx=max;
+  const w=cards[0].offsetWidth+16;
   track.style.transform=`translateX(-${tIdx*w}px)`;
   const pages=Math.ceil(TOTAL/vis);
   const cur=Math.floor(tIdx/vis);
-  document.getElementById('tdots').innerHTML=Array.from({length:pages},(_,i)=>
-    `<div class="tdot${i===cur?' on':''}" onclick="tGo(${i*vis})"></div>`).join('');
+  document.getElementById('tdots').innerHTML=Array.from({length:pages},(_,i)=>`<div class="tdot${i===cur?' on':''}" onclick="tGo(${i*vis})"></div>`).join('');
 }
-function tNext(){const v=getVis();tIdx=Math.min(tIdx+1,TOTAL-v);updateCarousel()}
-function tPrev(){tIdx=Math.max(tIdx-1,0);updateCarousel()}
-function tGo(i){tIdx=i;updateCarousel()}
+function tNext(){const v=getVis();tIdx=Math.min(tIdx+1,TOTAL-v);updateCarousel();}
+function tPrev(){tIdx=Math.max(tIdx-1,0);updateCarousel();}
+function tGo(i){tIdx=i;updateCarousel();}
 
-/* Touch swipe */
 let tsX=0;
 document.addEventListener('DOMContentLoaded',()=>{
   const tc=document.querySelector('.tcar');
@@ -906,17 +848,13 @@ document.addEventListener('DOMContentLoaded',()=>{
   window.addEventListener('resize',updateCarousel);
 });
 
-/* Sticky mobile CTA */
 window.addEventListener('scroll',()=>{
   const s=document.getElementById('sticky-cta');
-  if(s) s.style.display=(window.scrollY>500&&window.innerWidth<768)?'block':'none';
+  if(s) s.style.display=(window.scrollY>400&&window.innerWidth<768)?'block':'none';
 });
 
-/* Scroll reveal */
-const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:0.06});
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');}),{threshold:0.06});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-
-/* Init */
 renderFAQ('en');
 </script>
 </body>
