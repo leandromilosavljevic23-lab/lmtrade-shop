@@ -249,32 +249,94 @@ main{flex:1;margin-left:218px;padding:28px 32px 80px;max-width:100%;overflow-x:h
 .toast.show{transform:none}
 
 /* ── RESPONSIVE ── */
+@media(max-width:1280px){
+  main{padding:24px 22px 80px}
+}
 @media(max-width:1100px){
   .kpi-row{grid-template-columns:repeat(2,1fr)}
-  .assets-grid{grid-template-columns:repeat(2,1fr)}
+  .assets-grid{grid-template-columns:repeat(2,1fr);gap:12px}
   .dd-grid{grid-template-columns:1fr}
   .j-stats{grid-template-columns:repeat(2,1fr)}
   .brief-stats{grid-template-columns:repeat(2,1fr)}
+  .cal-row{grid-template-columns:80px 60px 1fr 70px;gap:10px;font-size:12.5px}
+  .cal-row.head span:nth-child(5),.cal-row.head span:nth-child(6),.cal-row span.cal-num{display:none}
 }
-@media(max-width:780px){
-  header{padding:0 14px;gap:10px}
+@media(max-width:860px){
+  header{padding:0 12px;gap:8px}
   .h-user{display:none}
-  aside{transform:translateX(-100%);transition:transform .3s;z-index:60;width:240px}
+  .h-live{font-size:10px;padding:4px 9px}
+  .h-live span{display:none}
+  aside{transform:translateX(-100%);transition:transform .25s;z-index:60;width:260px;box-shadow:8px 0 32px rgba(0,0,0,.4)}
   aside.open{transform:none}
-  main{margin-left:0;padding:20px 16px 90px}
-  .ph h1{font-size:22px}
-  .assets-grid{grid-template-columns:1fr}
-  .j-row{grid-template-columns:1fr 1fr}
-  .levels{grid-template-columns:repeat(2,1fr)}
-  .cal-row{grid-template-columns:1fr;gap:6px;padding:14px 16px}
+  main{margin-left:0;padding:18px 14px 96px}
+  .ph{flex-direction:column;align-items:flex-start;gap:8px;margin-bottom:18px;padding-bottom:14px}
+  .ph h1{font-size:21px}
+  .ph p{font-size:12.5px}
+  .ph-meta{font-size:11px;flex-wrap:wrap;gap:8px}
+  .market-status{padding:14px 16px;font-size:12px;gap:10px}
+  .ms-time{font-size:11px}
+  .kpi{padding:14px 14px}
+  .kpi-l{font-size:10px}
+  .kpi-v{font-size:20px}
+  .assets-grid{grid-template-columns:1fr;gap:11px}
+  .ac{padding:15px}
+  .ac-price{font-size:20px;margin-bottom:11px}
+  .summary-card{padding:18px}
+  .summary-card p{font-size:13px}
+  .tabs{gap:6px;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+  .tab{padding:8px 13px;font-size:12px}
+  .brief{padding:18px}
+  .brief-title h2{font-size:17px}
+  .brief-stats{gap:9px}
+  .bs{padding:9px 10px}
+  .bs-v{font-size:14px}
+  .brief-body p{font-size:13px;line-height:1.7}
+  .levels{grid-template-columns:repeat(2,1fr);gap:7px}
+  .lvl-v{font-size:13px}
+  .theme-card{padding:18px}
+  .theme-card h2{font-size:16px}
+  .dd{padding:18px}
+  .j-form{padding:18px}
+  .j-row{grid-template-columns:1fr 1fr;gap:9px}
+  .j-list-h{padding:12px 16px}
+  .j-tbl th,.j-tbl td{padding:10px 11px;font-size:12px}
+  .j-tbl td:nth-child(8){display:none}
+  .cal-row{grid-template-columns:1fr;gap:5px;padding:13px 14px}
   .cal-row.head{display:none}
-  .cal-row span:before{content:attr(data-l) ': ';color:var(--tx3);font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.4px;margin-right:5px}
-  .cal-imp{margin-top:4px}
+  .cal-row span{display:flex;justify-content:space-between;align-items:center;font-size:13px}
+  .cal-row span:before{content:attr(data-l);color:var(--tx3);font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.4px;flex-shrink:0}
+  .cal-row .cal-num{display:flex}
+  .cal-imp{margin:0}
   .mob-nav{display:flex}
   .h-logout{padding:5px 10px;font-size:11px}
   .ham{display:flex!important}
+  .toast{bottom:78px;right:14px;left:14px;text-align:center}
 }
-.ham{display:none;background:none;border:1px solid var(--br2);width:36px;height:36px;border-radius:8px;align-items:center;justify-content:center;cursor:pointer;flex-direction:column;gap:4px}
+@media(max-width:480px){
+  header{height:54px}
+  .app{padding-top:54px}
+  aside{top:54px}
+  .h-logo-tx{font-size:13px}
+  .h-logo svg{width:26px;height:26px}
+  .h-live{padding:3px 8px}
+  .h-logout{padding:4px 9px;font-size:10.5px}
+  main{padding:14px 11px 92px}
+  .ph h1{font-size:19px}
+  .market-status{flex-direction:column;align-items:flex-start;text-align:left}
+  .ms-time{align-self:flex-end}
+  .kpi-row{gap:9px}
+  .kpi{padding:12px}
+  .kpi-v{font-size:18px}
+  .ac-emoji{width:30px;height:30px;font-size:19px}
+  .ac-name{font-size:13px}
+  .ac-price{font-size:18px}
+  .tab{padding:7px 11px;font-size:11.5px}
+  .brief{padding:15px}
+  .j-tbl td:nth-child(4),.j-tbl td:nth-child(5),.j-tbl th:nth-child(4),.j-tbl th:nth-child(5){display:none}
+  .mob-nav button{font-size:9.5px}
+  .mob-nav button .ic{font-size:16px}
+}
+.ham{display:none;background:none;border:1px solid var(--br2);width:34px;height:34px;border-radius:8px;align-items:center;justify-content:center;cursor:pointer;flex-direction:column;gap:4px;flex-shrink:0}
 .ham span{width:16px;height:2px;background:var(--tx2);border-radius:2px}
 
 /* scrollbar */
@@ -696,6 +758,38 @@ function initDashboard(){
   setDates();
   startClock();
   document.getElementById('jDate').valueAsDate=new Date();
+  fetchLivePrices();
+  setInterval(fetchLivePrices,90_000); // alle 90s aktualisieren
+}
+
+// ─────── LIVE-PREISE (CoinGecko + Frankfurter + Yahoo, gratis) ───────
+async function fetchLivePrices(){
+  try{
+    const r=await fetch('/api/prices');
+    if(!r.ok)return;
+    const d=await r.json();
+    const map={btc:'btc',eth:'eth',xau:'xau',nas:'nas',eur:'eur',dxy:'dxy'};
+    Object.keys(map).forEach(k=>{
+      const live=d[k];if(!live||live.price==null)return;
+      const a=ASSETS.find(x=>x.id===k);if(!a)return;
+      const fmt=k==='eur'?live.price.toFixed(4):k==='dxy'?live.price.toFixed(2):live.price>=1000?live.price.toLocaleString('en-US',{maximumFractionDigits:0}):live.price.toFixed(2);
+      a.price=fmt;
+      if(live.ch24!=null){
+        const sign=live.ch24>=0?'+':'';
+        a.ch=sign+live.ch24.toFixed(2)+'%';
+      }
+    });
+    renderAssets();
+    // Wenn ein Briefing offen ist, auch das aktualisieren
+    const activeTab=document.querySelector('#briefTabs .tab.on');
+    if(activeTab){
+      const idx=Array.from(document.querySelectorAll('#briefTabs .tab')).indexOf(activeTab);
+      if(idx>=0)showBrief(ASSETS[idx].id);
+    }
+    document.getElementById('lastUpdate').textContent=d.cached?`vor ${d.age}s`:'gerade eben';
+  }catch(e){
+    // silent fail – Dashboard nutzt Fallback-Preise
+  }
 }
 
 function setDates(){
