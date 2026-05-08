@@ -410,7 +410,7 @@ main{flex:1;margin-left:218px;padding:28px 32px 80px;max-width:100%;overflow-x:h
             <p id="welcomeMsg">Willkommen zurück. Hier dein heutiger Markt-Überblick.</p>
           </div>
           <div class="ph-meta">
-            <span>Letzte AI-Analyse: <b id="lastUpdate">vor 6 Min</b></span>
+            <span>Letzte KI-Analyse: <b id="lastUpdate">Lädt…</b></span>
             <span>·</span>
             <span><b id="todayDate">--</b></span>
           </div>
@@ -759,7 +759,8 @@ function initDashboard(){
   startClock();
   document.getElementById('jDate').valueAsDate=new Date();
   fetchLivePrices();
-  setInterval(fetchLivePrices,90_000); // alle 90s aktualisieren
+  fetchAiBriefings();
+  setInterval(fetchLivePrices,90_000);
 }
 
 // ─────── LIVE-PREISE (CoinGecko + Frankfurter + Yahoo, gratis) ───────
@@ -789,6 +790,40 @@ async function fetchLivePrices(){
     document.getElementById('lastUpdate').textContent=d.cached?`vor ${d.age}s`:'gerade eben';
   }catch(e){
     // silent fail – Dashboard nutzt Fallback-Preise
+  }
+}
+
+// ─────── DYNAMISCHE KI-BRIEFINGS (von /api/briefings, täglich via Cron) ───────
+async function fetchAiBriefings(){
+  try{
+    const r=await fetch('/api/briefings');
+    if(!r.ok)return; // kein Redis / Cron noch nicht gelaufen → statische Daten bleiben
+    const d=await r.json();
+    if(!d.assets)return;
+    let updated=0;
+    ASSETS.forEach(a=>{
+      const b=d.assets[a.id];
+      if(!b)return;
+      if(b.score!=null)a.score=b.score;
+      if(b.dir)a.dir=b.dir;
+      if(b.conf!=null)a.conf=b.conf;
+      if(b.s1)a.s1=b.s1;if(b.s2)a.s2=b.s2;
+      if(b.r1)a.r1=b.r1;if(b.r2)a.r2=b.r2;
+      if(b.tf)a.tf=b.tf;
+      if(b.text&&b.text.length)a.text=b.text;
+      if(b.idea)a.idea=b.idea;
+      if(b.ch)a.ch=b.ch;
+      if(b.price)a.price=b.price;
+      updated++;
+    });
+    if(updated>0){
+      renderAssets();
+      renderBriefings();
+      if(d.date)document.getElementById('briefDate').textContent=d.date;
+      document.getElementById('lastUpdate').textContent='KI-Analyse heute';
+    }
+  }catch(e){
+    // silent fail — statische Daten als Fallback
   }
 }
 
