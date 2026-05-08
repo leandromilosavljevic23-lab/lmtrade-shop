@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>AI Trade Board Admin</title>
+<title>AI Trade Board — Admin</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -11,182 +11,287 @@ body{background:#060a12;color:#e2e8f0;font-family:'Outfit',sans-serif;min-height
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-#loginScreen{position:fixed;inset:0;background:#060a12;display:flex;align-items:center;justify-content:center;z-index:100}
-.lcard{background:#0f1520;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:48px;max-width:400px;width:100%;text-align:center}
-.llogo{font-size:22px;font-weight:800;color:#fff;margin-bottom:8px}.llogo span{color:#00d084}
-.lsub{color:#64748b;font-size:14px;margin-bottom:28px}
-.inp{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px 14px;color:#e2e8f0;font-family:'Outfit',sans-serif;font-size:15px;margin-bottom:14px}
+#loginScreen{position:fixed;inset:0;background:#060a12;display:flex;align-items:center;justify-content:center;z-index:100;background-image:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(0,208,132,.07),transparent 60%)}
+.lcard{background:#0f1520;border:1px solid rgba(0,208,132,.2);border-radius:20px;padding:48px;max-width:400px;width:100%;text-align:center}
+.llogo{font-size:22px;font-weight:800;color:#fff;margin-bottom:4px}.llogo span{color:#00d084}
+.lsub{color:#64748b;font-size:13px;margin-bottom:28px}
+.inp{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px 14px;color:#e2e8f0;font-family:'Outfit',sans-serif;font-size:15px;margin-bottom:14px;transition:border .2s}
 .inp:focus{outline:none;border-color:#00d084}
 .inp::placeholder{color:#475569}
-.lbtn{width:100%;background:linear-gradient(135deg,#00d084,#00b8d9);color:#fff;border:none;padding:14px;border-radius:8px;font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;cursor:pointer}
-.lerr{color:#ff4d6a;font-size:13px;margin-top:8px;display:none}
-#app{display:none;max-width:960px;margin:0 auto;padding:32px 24px}
-.hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px}
+.lbtn{width:100%;background:linear-gradient(135deg,#00d084,#00b8d9);color:#001018;border:none;padding:14px;border-radius:8px;font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;cursor:pointer}
+.lerr{color:#ff4d6a;font-size:13px;margin-top:10px;display:none}
+#app{display:none;max-width:1000px;margin:0 auto;padding:32px 24px}
+.hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:12px}
 .hlogo{font-size:20px;font-weight:800;color:#fff}.hlogo span{color:#00d084}
 .hsub{font-size:13px;color:#64748b;margin-top:2px}
 .live{display:inline-flex;align-items:center;gap:6px;background:rgba(0,208,132,.08);border:1px solid rgba(0,208,132,.2);border-radius:20px;padding:5px 14px;font-size:12px;color:#00d084;font-weight:600}
 .ldot{width:6px;height:6px;border-radius:50%;background:#00d084;animation:pulse 2s infinite}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
-.sc{background:#0f1520;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 24px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+.sc{background:#0f1520;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:18px 22px}
 .sl{font-size:11px;color:#64748b;font-weight:500;text-transform:uppercase;letter-spacing:.06em}
-.sn{font-size:32px;font-weight:800;margin-top:4px}
-.g{color:#00d084}.y{color:#ffb340}.b{color:#00b8d9}
-.card{background:#0f1520;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:28px;margin-bottom:20px;animation:fadeIn .3s ease}
-.ct{font-size:16px;font-weight:700;color:#fff;margin-bottom:20px;display:flex;align-items:center;gap:8px}
-.row{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end}
-.fl label{font-size:12px;color:#64748b;display:block;margin-bottom:6px;font-weight:500}
-.fl input,.fl select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px 12px;color:#e2e8f0;font-family:'Outfit',sans-serif;font-size:14px}
+.sn{font-size:30px;font-weight:800;margin-top:4px}
+.g{color:#00d084}.y{color:#ffb340}.b{color:#00b8d9}.r{color:#ef4444}
+.card{background:#0f1520;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:26px;margin-bottom:18px;animation:fadeIn .3s ease}
+.ct{font-size:15px;font-weight:700;color:#fff;margin-bottom:18px;display:flex;align-items:center;gap:8px;justify-content:space-between;flex-wrap:wrap}
+.form-row{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end}
+.fl label{font-size:11px;color:#64748b;display:block;margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.fl input,.fl select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px 12px;color:#e2e8f0;font-family:'Outfit',sans-serif;font-size:14px;transition:border .2s}
 .fl input:focus,.fl select:focus{outline:none;border-color:#00d084}
 .fl input::placeholder{color:#475569}
-.btn{background:linear-gradient(135deg,#00d084,#00b8d9);color:#fff;border:none;padding:10px 20px;border-radius:8px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;cursor:pointer;height:40px;display:flex;align-items:center;gap:6px}
+.btn{background:linear-gradient(135deg,#00d084,#00b8d9);color:#001018;border:none;padding:10px 20px;border-radius:8px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
 .btn:disabled{opacity:.5;cursor:not-allowed}
-.btns{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#e2e8f0}
+.btn-sm{padding:5px 12px;font-size:12px;border-radius:6px}
+.btn-del{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.25)}
+.btn-ext{background:rgba(245,158,11,.1);color:#f59e0b;border:1px solid rgba(245,158,11,.25)}
+.btn-sec{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#e2e8f0}
 .res{background:rgba(0,208,132,.05);border:1px solid rgba(0,208,132,.2);border-radius:10px;padding:16px;margin-top:16px;display:none;animation:fadeIn .3s ease}
-.rrow{display:flex;justify-content:space-between;padding:6px 0;font-size:14px;border-bottom:1px solid rgba(255,255,255,.05)}
+.rrow{display:flex;justify-content:space-between;padding:7px 0;font-size:14px;border-bottom:1px solid rgba(255,255,255,.05)}
 .rrow:last-child{border:none}
-.rk{color:#64748b}.rv{color:#00d084;font-weight:600;font-family:monospace;cursor:pointer}
+.rk{color:#64748b}.rv{color:#00d084;font-weight:700;font-family:monospace;cursor:pointer}
 .rtip{font-size:11px;color:#475569;margin-top:8px;text-align:center}
+.tbl-wrap{overflow-x:auto}
 table{width:100%;border-collapse:collapse}
-th{font-size:11px;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,.06)}
-td{font-size:14px;color:#cbd5e1;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.04)}
+th{font-size:10px;color:#64748b;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:10px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,.07)}
+td{font-size:13px;color:#cbd5e1;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:middle}
+tr:hover td{background:rgba(255,255,255,.02)}
 tr:last-child td{border:none}
-.st{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700}
 .act{background:rgba(0,208,132,.1);color:#00d084;border:1px solid rgba(0,208,132,.2)}
-.exp{background:rgba(255,77,106,.1);color:#ff4d6a;border:1px solid rgba(255,77,106,.2)}
-.mono{font-family:monospace;font-size:13px}
-.empty{text-align:center;padding:40px;color:#475569}
-.toast{position:fixed;bottom:24px;right:24px;background:#0f1520;border:1px solid rgba(0,208,132,.3);border-radius:10px;padding:12px 20px;font-size:14px;color:#e2e8f0;z-index:200;animation:fadeIn .3s ease;display:none}
+.exp{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.2)}
+.mono{font-family:monospace;font-size:12px;color:#00d084;cursor:pointer}
+.mono:hover{text-decoration:underline}
+.td-actions{display:flex;gap:6px;align-items:center}
+.empty{text-align:center;padding:40px;color:#475569;font-size:14px}
+.loading{text-align:center;padding:30px;color:#64748b;font-size:13px}
+.toast{position:fixed;bottom:24px;right:24px;background:#0f1520;border:1px solid rgba(0,208,132,.3);border-radius:10px;padding:12px 20px;font-size:14px;color:#e2e8f0;z-index:200;animation:fadeIn .3s ease;display:none;max-width:300px}
+.toast.err{border-color:rgba(239,68,68,.4)}
 .toast.show{display:block}
-@media(max-width:600px){.stats{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr}}
+.ext-row{display:flex;align-items:center;gap:8px;margin-top:6px}
+.ext-row input{width:80px;padding:5px 8px;font-size:12px}
+@media(max-width:700px){.stats{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.td-actions{flex-direction:column;gap:4px}}
 </style>
 </head>
 <body>
+
 <div id="loginScreen">
   <div class="lcard">
-    <div class="llogo"><span>LM</span> Trade Admin</div>
-    <p class="lsub">Zugang nur fuer Administratoren</p>
+    <div class="llogo"><span>AI</span> Trade Board</div>
+    <p class="lsub">Admin — Zugang nur für Administratoren</p>
     <input class="inp" type="password" id="si" placeholder="Admin-Passwort" onkeydown="if(event.key==='Enter')login()"/>
-    <button class="lbtn" onclick="login()">Einloggen &rarr;</button>
+    <button class="lbtn" onclick="login()">Einloggen →</button>
     <div class="lerr" id="le">Falsches Passwort</div>
   </div>
 </div>
+
 <div id="app">
   <div class="hdr">
-    <div><div class="hlogo"><span>LM</span> Trade Admin</div><div class="hsub">Kunden & Zugangsverwaltung</div></div>
-    <div class="live"><div class="ldot"></div>Admin-Panel</div>
+    <div>
+      <div class="hlogo"><span>AI</span> Trade Board · Admin</div>
+      <div class="hsub">Kunden- &amp; Zugangsverwaltung</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="live"><div class="ldot"></div>Admin-Panel</div>
+      <button class="btn btn-sec btn-sm" onclick="logout()">Logout</button>
+    </div>
   </div>
+
   <div class="stats">
-    <div class="sc"><div class="sl">Aktive Kunden</div><div class="sn g" id="sa">0</div></div>
-    <div class="sc"><div class="sl">Gesamt</div><div class="sn b" id="st">0</div></div>
-    <div class="sc"><div class="sl">Diesen Monat</div><div class="sn y" id="sm">0</div></div>
+    <div class="sc"><div class="sl">Aktive Kunden</div><div class="sn g" id="sa">—</div></div>
+    <div class="sc"><div class="sl">Gesamt</div><div class="sn b" id="st">—</div></div>
+    <div class="sc"><div class="sl">Abgelaufen</div><div class="sn r" id="se">—</div></div>
   </div>
+
+  <!-- CREATE -->
   <div class="card">
     <div class="ct">+ Neuen Zugang erstellen</div>
-    <div class="row">
+    <div class="form-row">
       <div class="fl"><label>Email-Adresse</label><input type="email" id="ne" placeholder="kunde@email.com"/></div>
-      <div class="fl"><label>Laufzeit</label><select id="nd"><option value="30">30 Tage (1 Monat)</option><option value="60">60 Tage (2 Monate)</option><option value="90">90 Tage (3 Monate)</option><option value="7">7 Tage (Test)</option></select></div>
-      <button class="btn" id="cb" onclick="create()"><span>Erstellen</span></button>
+      <div class="fl"><label>Laufzeit</label>
+        <select id="nd">
+          <option value="30">30 Tage (1 Monat)</option>
+          <option value="60">60 Tage (2 Monate)</option>
+          <option value="90">90 Tage (3 Monate)</option>
+          <option value="365">365 Tage (1 Jahr)</option>
+          <option value="7">7 Tage (Test)</option>
+        </select>
+      </div>
+      <button class="btn" id="cb" onclick="create()">Erstellen</button>
     </div>
     <div class="res" id="cr">
-      <div class="rrow"><span class="rk">Benutzername</span><span class="rv" id="ru" onclick="copy(this)"></span></div>
-      <div class="rrow"><span class="rk">Passwort</span><span class="rv" id="rp" onclick="copy(this)"></span></div>
-      <div class="rrow"><span class="rk">Gueltig bis</span><span class="rv" id="re" style="color:#ffb340;cursor:default"></span></div>
-      <div class="rrow"><span class="rk">Email</span><span class="rv" id="rml" style="cursor:default"></span></div>
-      <p class="rtip">Klick auf Username/Passwort zum Kopieren</p>
+      <div class="rrow"><span class="rk">Benutzername</span><span class="rv" id="ru" onclick="copy(this)" title="Klicken zum Kopieren"></span></div>
+      <div class="rrow"><span class="rk">Passwort</span><span class="rv" id="rp" onclick="copy(this)" title="Klicken zum Kopieren"></span></div>
+      <div class="rrow"><span class="rk">Gültig bis</span><span style="color:#ffb340;font-weight:700" id="re"></span></div>
+      <div class="rrow"><span class="rk">Email gesendet</span><span id="rml"></span></div>
+      <p class="rtip">Klick auf Username / Passwort zum Kopieren</p>
     </div>
   </div>
+
+  <!-- USER LIST -->
   <div class="card">
-    <div class="ct" style="justify-content:space-between">
-      <span>Vergebene Zugaenge</span>
-      <button class="btn btns" style="padding:6px 14px;font-size:12px;height:auto" onclick="loadH()">Aktualisieren</button>
+    <div class="ct">
+      <span>Alle Kunden</span>
+      <button class="btn btn-sec btn-sm" onclick="loadUsers()">↻ Aktualisieren</button>
     </div>
-    <div style="overflow-x:auto">
-      <table><thead><tr><th>Email</th><th>Username</th><th>Passwort</th><th>Erstellt</th><th>Gueltig bis</th><th>Status</th></tr></thead>
-      <tbody id="hb"><tr><td colspan="6" class="empty">Noch keine Zugaenge erstellt</td></tr></tbody></table>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Email</th><th>Username</th><th>Passwort</th><th>Erstellt</th><th>Gültig bis</th><th>Status</th><th>Aktionen</th></tr>
+        </thead>
+        <tbody id="ub">
+          <tr><td colspan="7" class="loading">Wird geladen…</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
+
+  <!-- PAYMENTS -->
   <div class="card">
     <div class="ct">Krypto-Zahlungen</div>
-    <p style="font-size:14px;color:#64748b;margin-bottom:16px">Eingehende Zahlungen ueber Coinbase Commerce werden automatisch verarbeitet.</p>
+    <p style="font-size:13px;color:#64748b;margin-bottom:16px">Eingehende Zahlungen über Coinbase Commerce werden automatisch verarbeitet und Zugänge angelegt.</p>
     <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a href="https://commerce.coinbase.com" target="_blank" class="btn" style="text-decoration:none">Coinbase Commerce</a>
-      <a href="/" target="_blank" class="btn btns" style="text-decoration:none">Shop ansehen</a>
+      <a href="https://commerce.coinbase.com" target="_blank" class="btn" style="text-decoration:none">Coinbase Commerce öffnen</a>
+      <a href="/" target="_blank" class="btn btn-sec" style="text-decoration:none">Shop ansehen</a>
+      <a href="/dashboard" target="_blank" class="btn btn-sec" style="text-decoration:none">Dashboard ansehen</a>
     </div>
   </div>
 </div>
+
 <div class="toast" id="toast"></div>
+
 <script>
-const AU='/api/admin';let secret='';
-let H=JSON.parse(localStorage.getItem('lmt_h')||'[]');
+const AU='/api/admin';
+let secret='';
 
 function login(){
   secret=document.getElementById('si').value.trim();
   if(!secret)return;
+  const btn=document.querySelector('.lbtn');
+  btn.disabled=true;btn.textContent='Prüfe…';
   fetch(AU+'?action=ping',{method:'POST',headers:{'Content-Type':'application/json','X-Admin-Secret':secret},body:JSON.stringify({action:'ping'})})
     .then(r=>{
-      if(r.status===401){document.getElementById('le').style.display='block';}
-      else{go();}
-    }).catch(()=>go());
+      if(r.status===401){document.getElementById('le').style.display='block';btn.disabled=false;btn.textContent='Einloggen →';}
+      else enterApp();
+    }).catch(()=>enterApp());
 }
-function go(){
+
+function enterApp(){
   sessionStorage.setItem('as',secret);
   document.getElementById('loginScreen').style.display='none';
   document.getElementById('app').style.display='block';
-  loadH();updateS();
+  loadUsers();
 }
-window.addEventListener('load',()=>{const s=sessionStorage.getItem('as');if(s){document.getElementById('si').value=s;secret=s;go();}});
 
-function pw(){const c='CuachkNStJHuk3UVkCtnAPn7CpLTsMtsoo8hLVDR4Cn7456789';let p='';for(let i=0;i<10;i++)p+=c[Math.floor(Math.random()*c.length)];return p;}
+function logout(){
+  sessionStorage.removeItem('as');
+  location.reload();
+}
 
+window.addEventListener('load',()=>{
+  const s=sessionStorage.getItem('as');
+  if(s){secret=s;enterApp();}
+  else document.getElementById('si').focus();
+});
+
+// ── CREATE ──
 async function create(){
   const email=document.getElementById('ne').value.trim();
   const days=document.getElementById('nd').value;
-  if(!email||!email.includes('@')){toast('Gueltige Email eingeben','#ff4d6a');return;}
+  if(!email||!email.includes('@')){toast('Gültige Email eingeben',true);return;}
   const btn=document.getElementById('cb');
-  btn.disabled=true;btn.innerHTML='<span style="width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;display:inline-block;animation:spin .8s linear infinite"></span>';
+  btn.disabled=true;btn.innerHTML='<span style="width:14px;height:14px;border:2px solid rgba(0,0,0,.3);border-top-color:#001;border-radius:50%;display:inline-block;animation:spin .8s linear infinite"></span>';
   try{
     const r=await fetch(AU+'?action=create',{method:'POST',headers:{'Content-Type':'application/json','X-Admin-Secret':secret},body:JSON.stringify({action:'create',email,days})});
     const d=await r.json();
-    if(d.success){show(d.username,d.password,d.expiresAt,d.emailSent,email,days);}
-    else toast('Fehler: '+(d.error||'Unbekannt'),'#ff4d6a');
-  }catch(e){
-    const un=email.split('@')[0].toLowerCase().replace(/[^a-z0-9]/g,'').slice(0,10)+(Math.floor(Math.random()*999)+1);
-    const p=pw();
-    const exp=new Date(Date.now()+days*86400000).toISOString().split('T')[0];
-    show(un,p,exp,false,email,days);
-  }
-  btn.disabled=false;btn.innerHTML='<span>Erstellen</span>';
+    if(d.success){
+      showResult(d.username,d.password,d.expiresAt,d.emailSent);
+      loadUsers();
+    }else toast('Fehler: '+(d.error||'Unbekannt'),true);
+  }catch(e){toast('API nicht erreichbar — überprüfe ADMIN_SECRET in Vercel',true);}
+  btn.disabled=false;btn.textContent='Erstellen';
 }
 
-function show(u,p,e,sent,email,days){
+function showResult(u,p,e,sent){
   document.getElementById('ru').textContent=u;
   document.getElementById('rp').textContent=p;
   document.getElementById('re').textContent=e;
-  document.getElementById('rml').textContent=sent?'Gesendet':'Manuell senden';
+  document.getElementById('rml').innerHTML=sent?'<span style="color:#00d084">✓ Gesendet</span>':'<span style="color:#f59e0b">Nicht gesendet (kein RESEND_API_KEY?)</span>';
   document.getElementById('cr').style.display='block';
-  H.unshift({email,username:u,password:p,expiresAt:e,createdAt:new Date().toISOString().split('T')[0]});
-  localStorage.setItem('lmt_h',JSON.stringify(H));
-  loadH();updateS();
-  toast('Zugang erstellt'+(sent?' & Email gesendet':''),'#00d084');
   document.getElementById('ne').value='';
+  toast('Zugang erstellt'+(sent?' & Email gesendet':''));
 }
-function loadH(){
-  const b=document.getElementById('hb');
-  if(!H.length){b.innerHTML='<tr><td colspan="6" class="empty">Noch keine Zugaenge</td></tr>';return;}
-  b.innerHTML=H.map(h=>{
-    const ok=new Date(h.expiresAt)>=new Date();
-    return '<tr><td>'+h.email+'</td><td class="mono" onclick="copyT(''+h.username+'')" style="cursor:pointer;color:#00d084">'+h.username+'</td><td class="mono" onclick="copyT(''+h.password+'')" style="cursor:pointer;color:#00d084">'+h.password+'</td><td style="color:#64748b">'+h.createdAt+'</td><td style="color:#ffb340">'+h.expiresAt+'</td><td><span class="st '+(ok?'act':'exp')+'">'+(ok?'Aktiv':'Abgelaufen')+'</span></td></tr>';
+
+// ── LOAD USERS ──
+async function loadUsers(){
+  document.getElementById('ub').innerHTML='<tr><td colspan="7" class="loading">Lädt von Redis…</td></tr>';
+  try{
+    const r=await fetch(AU+'?action=list',{headers:{'X-Admin-Secret':secret}});
+    const d=await r.json();
+    if(!r.ok){document.getElementById('ub').innerHTML='<tr><td colspan="7" class="empty">Fehler: '+(d.error||r.status)+'</td></tr>';return;}
+    renderUsers(d.users||[]);
+  }catch(e){
+    document.getElementById('ub').innerHTML='<tr><td colspan="7" class="empty">Verbindungsfehler — Upstash Redis konfiguriert?</td></tr>';
+  }
+}
+
+function renderUsers(users){
+  const now=new Date();
+  const active=users.filter(u=>new Date(u.exp)>=now);
+  const expired=users.filter(u=>new Date(u.exp)<now);
+  document.getElementById('sa').textContent=active.length;
+  document.getElementById('st').textContent=users.length;
+  document.getElementById('se').textContent=expired.length;
+
+  if(!users.length){
+    document.getElementById('ub').innerHTML='<tr><td colspan="7" class="empty">Noch keine Kunden. Erstelle oben den ersten Zugang.</td></tr>';
+    return;
+  }
+  const sorted=[...users].sort((a,b)=>new Date(b.created||0)-new Date(a.created||0));
+  document.getElementById('ub').innerHTML=sorted.map(u=>{
+    const ok=u.exp&&new Date(u.exp)>=now;
+    const created=u.created?u.created.split('T')[0]:'—';
+    return `<tr>
+      <td>${u.email||'—'}</td>
+      <td class="mono" onclick="copyT('${u.username}')" title="Kopieren">${u.username}</td>
+      <td class="mono" onclick="copyT('${u.p||''}')" title="Kopieren">${u.p||'—'}</td>
+      <td style="color:#64748b;font-size:12px">${created}</td>
+      <td style="color:${ok?'#f59e0b':'#ef4444'};font-size:12px">${u.exp||'—'}</td>
+      <td><span class="badge ${ok?'act':'exp'}">${ok?'Aktiv':'Abgelaufen'}</span></td>
+      <td>
+        <div class="td-actions">
+          <button class="btn btn-sm btn-ext" onclick="extendUser('${u.username}')">+ Verlängern</button>
+          <button class="btn btn-sm btn-del" onclick="deleteUser('${u.username}','${u.email||u.username}')">Löschen</button>
+        </div>
+      </td>
+    </tr>`;
   }).join('');
 }
-function updateS(){
-  const now=new Date(),tm=now.toISOString().slice(0,7);
-  document.getElementById('sa').textContent=H.filter(h=>new Date(h.expiresAt)>=now).length;
-  document.getElementById('st').textContent=H.length;
-  document.getElementById('sm').textContent=H.filter(h=>h.createdAt?.startsWith(tm)).length;
+
+// ── EXTEND ──
+async function extendUser(username){
+  const days=prompt(`Wie viele Tage verlängern für "${username}"?`,'30');
+  if(!days||isNaN(days)||parseInt(days)<=0)return;
+  try{
+    const r=await fetch(AU+'?action=extend',{method:'POST',headers:{'Content-Type':'application/json','X-Admin-Secret':secret},body:JSON.stringify({action:'extend',email:username+'@placeholder.local',username,days:parseInt(days)})});
+    const d=await r.json();
+    if(d.success){toast(`✓ ${username} um ${days} Tage verlängert bis ${d.expiresAt}`);loadUsers();}
+    else toast('Fehler: '+(d.error||'Unbekannt'),true);
+  }catch(e){toast('Verlängerung fehlgeschlagen',true);}
 }
+
+// ── DELETE ──
+async function deleteUser(username,label){
+  if(!confirm(`Wirklich löschen?\n\n${label}\n\nDieser Zugang kann nicht wiederhergestellt werden.`))return;
+  try{
+    const r=await fetch(AU+'?action=delete',{method:'POST',headers:{'Content-Type':'application/json','X-Admin-Secret':secret},body:JSON.stringify({action:'delete',username})});
+    const d=await r.json();
+    if(d.ok){toast(`✓ ${username} gelöscht`);loadUsers();}
+    else toast('Löschen fehlgeschlagen',true);
+  }catch(e){toast('Verbindungsfehler',true);}
+}
+
 function copy(el){copyT(el.textContent);}
-function copyT(t){navigator.clipboard.writeText(t).then(()=>toast('Kopiert!','#00d084'));}
-function toast(m,c='#00d084'){const t=document.getElementById('toast');t.textContent=m;t.style.borderColor=c;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+function copyT(t){navigator.clipboard.writeText(t).then(()=>toast('Kopiert: '+t.slice(0,20)+(t.length>20?'…':''))).catch(()=>{const i=document.createElement('input');i.value=t;document.body.appendChild(i);i.select();document.execCommand('copy');document.body.removeChild(i);toast('Kopiert!');});}
+function toast(m,err=false){const t=document.getElementById('toast');t.textContent=m;t.className='toast show'+(err?' err':'');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),3500);}
 </script>
 </body>
 </html>
