@@ -1,14 +1,14 @@
-// Vercel Cron Job — täglich 05:30 UTC.
+// Vercel Cron Job — alle 2h.
 // Holt Live-Preise, fragt Claude API für jedes Asset, speichert in Upstash Redis.
 // Env Vars: ANTHROPIC_API_KEY, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN, CRON_SECRET
 
 const ASSETS=[
+  {id:'us30',name:'US30',sym:'US30/DOW',em:'🏦',priceKey:'us30'},
+  {id:'nas100',name:'NAS100',sym:'NAS100',em:'💹',priceKey:'nas100'},
   {id:'xau',name:'Gold',sym:'XAU/USD',em:'🥇',priceKey:'xau'},
-  {id:'nas',name:'NAS100',sym:'NAS100',em:'💹',priceKey:'nas'},
-  {id:'eur',name:'EUR/USD',sym:'EUR/USD',em:'🇪🇺',priceKey:'eur'},
+  {id:'xag',name:'Silver',sym:'XAG/USD',em:'🪙',priceKey:'xag'},
+  {id:'eurusd',name:'EUR/USD',sym:'EUR/USD',em:'🇪🇺',priceKey:'eurusd'},
   {id:'btc',name:'Bitcoin',sym:'BTC/USD',em:'₿',priceKey:'btc'},
-  {id:'eth',name:'Ethereum',sym:'ETH/USD',em:'⟠',priceKey:'eth'},
-  {id:'dxy',name:'US Dollar Index',sym:'DXY',em:'💵',priceKey:'dxy'},
 ];
 
 async function kvSet(key,value){
@@ -36,7 +36,9 @@ async function generateBriefing(asset,prices){
   if(!apiKey)return null;
 
   const p=prices[asset.priceKey];
-  const priceStr=p?.price!=null?`${asset.sym} aktuell: ${p.price} (24h: ${p.ch24!=null?(p.ch24>=0?'+':'')+p.ch24.toFixed(2)+'%':'unbekannt'})`:`${asset.sym}: Preis nicht verfügbar`;
+  const priceStr=p?.price!=null
+    ?`${asset.sym} aktuell: ${p.price} (24h: ${p.ch24!=null?(p.ch24>=0?'+':'')+p.ch24.toFixed(2)+'%':'unbekannt'})`
+    :`${asset.sym}: Preis nicht verfügbar`;
 
   const prompt=`Du bist ein professioneller Trading-Analyst für das AI Trade Board Dashboard (institutionell, sachlich, deutsch).
 
@@ -44,7 +46,7 @@ Asset: ${asset.name} (${asset.sym})
 ${priceStr}
 Heutiges Datum: ${new Date().toLocaleDateString('de-DE',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}
 
-Erstelle ein tägliches Briefing im exakten JSON-Format:
+Erstelle ein Briefing im exakten JSON-Format:
 {
   "score": <0-100, KI-Setup-Qualität>,
   "dir": <"bull"|"bear"|"neut">,
@@ -54,13 +56,13 @@ Erstelle ein tägliches Briefing im exakten JSON-Format:
   "s2": <Support Level 2>,
   "r1": <Resistance Level>,
   "r2": <Resistance Level 2>,
-  "tf": {"h1":"Bullish|Bearish|Neutral","h4":"Bullish|Bearish|Range|...","d":"Bullish|Bearish|Range|..."},
+  "tf": {"h4":"Bullish|Bearish|Neutral","d":"Bullish|Bearish|Neutral","w":"Bullish|Bearish|Neutral"},
+  "regime": "<Kurzformel Marktregime, max 8 Wörter>",
   "text": [
     "<Satz 1: Technische Struktur, 2-3 Sätze>",
-    "<Satz 2: Key Katalysatoren heute, 2-3 Sätze>",
+    "<Satz 2: Key Katalysatoren, 2-3 Sätze>",
     "<Satz 3: Sentiment + Risiken, 2-3 Sätze>"
-  ],
-  "idea": "<Konkrete Trade-Idee mit Entry/Stop/Target/RR>"
+  ]
 }
 
 Antworte NUR mit dem JSON, kein Text davor oder danach.`;
@@ -75,7 +77,7 @@ Antworte NUR mit dem JSON, kein Text davor oder danach.`;
       },
       body:JSON.stringify({
         model:'claude-haiku-4-5-20251001',
-        max_tokens:800,
+        max_tokens:600,
         messages:[{role:'user',content:prompt}],
       }),
     });
@@ -92,7 +94,6 @@ Antworte NUR mit dem JSON, kein Text davor oder danach.`;
 }
 
 export default async function handler(req,res){
-  // Sicherheits-Check: nur von Vercel Cron oder mit Secret
   const cronSecret=process.env.CRON_SECRET;
   const authHeader=req.headers.authorization;
   if(cronSecret&&authHeader!==`Bearer ${cronSecret}`){
@@ -102,10 +103,8 @@ export default async function handler(req,res){
   const siteUrl=process.env.SITE_URL||'https://lmtrade-shop.vercel.app';
   console.log('Briefings Cron gestartet',new Date().toISOString());
 
-  // 1) Live-Preise holen
   const prices=await fetchLivePrices(siteUrl);
 
-  // 2) Für jedes Asset ein Briefing generieren
   const results={};
   const errors=[];
 
@@ -121,11 +120,11 @@ export default async function handler(req,res){
         price:prices[asset.priceKey]?.price!=null
           ?formatPrice(asset.id,prices[asset.priceKey].price)
           :null,
+        ch24raw:prices[asset.priceKey]?.ch24??null,
       };
     }else{
       errors.push(asset.id);
     }
-    // Rate limit: 500ms zwischen Calls
     await new Promise(r=>setTimeout(r,500));
   }
 
@@ -133,7 +132,6 @@ export default async function handler(req,res){
     return res.status(500).json({error:'Alle Briefings fehlgeschlagen',errors});
   }
 
-  // 3) In Upstash Redis speichern
   const payload={
     assets:results,
     updatedAt:new Date().toISOString(),
@@ -147,8 +145,8 @@ export default async function handler(req,res){
 }
 
 function formatPrice(id,price){
-  if(id==='eur')return price.toFixed(4);
-  if(id==='dxy')return price.toFixed(2);
-  if(price>=1000)return price.toLocaleString('en-US',{maximumFractionDigits:0});
+  if(id==='eurusd')return price.toFixed(4);
+  if(id==='btc'||price>=10000)return price.toLocaleString('en-US',{maximumFractionDigits:0});
+  if(price>=100)return price.toLocaleString('en-US',{maximumFractionDigits:2});
   return price.toFixed(2);
 }
