@@ -1,5 +1,16 @@
 // Admin-Endpoint: User manuell anlegen/verlängern/listen. Speichert in Upstash Redis.
 
+async function kvGet(key){
+  const url=process.env.UPSTASH_REDIS_REST_URL;
+  const tok=process.env.UPSTASH_REDIS_REST_TOKEN;
+  if(!url||!tok)return null;
+  const r=await fetch(`${url}/get/${encodeURIComponent(key)}`,{headers:{Authorization:`Bearer ${tok}`}});
+  if(!r.ok)return null;
+  const d=await r.json();
+  if(!d.result)return null;
+  try{return JSON.parse(d.result);}catch(e){return d.result;}
+}
+
 async function kvSet(key,value){
   const url=process.env.UPSTASH_REDIS_REST_URL;
   const tok=process.env.UPSTASH_REDIS_REST_TOKEN;
@@ -84,7 +95,8 @@ export default async function handler(req,res){
     const expiresAt=d.toISOString().split("T")[0];
 
     // In Upstash speichern
-    const stored=await kvSet(`user:${username.toLowerCase()}`,{p:password,exp:expiresAt,email,created:new Date().toISOString()});
+    const role=req.body?.role||'user';
+    const stored=await kvSet(`user:${username.toLowerCase()}`,{p:password,exp:expiresAt,email,role,created:new Date().toISOString()});
 
     // Email
     const resendKey=process.env.RESEND_API_KEY;
@@ -100,6 +112,19 @@ export default async function handler(req,res){
     }
 
     return res.status(200).json({success:true,username,password,expiresAt,emailSent,stored,dashboardUrl:dashUrl});
+  }
+
+  // ── UPDATE (role / password / expiry)
+  if(action==="update"&&req.method==="POST"){
+    const{username,role,password,days}=req.body||{};
+    if(!username)return res.status(400).json({error:"Username required"});
+    const existing=await kvGet(`user:${username.toLowerCase()}`);
+    if(!existing)return res.status(404).json({error:"User not found"});
+    if(role!==undefined)existing.role=role;
+    if(password)existing.p=password;
+    if(days){const d=new Date();d.setDate(d.getDate()+parseInt(days));existing.exp=d.toISOString().split("T")[0];}
+    const ok=await kvSet(`user:${username.toLowerCase()}`,existing);
+    return res.status(200).json({ok,username,role:existing.role,exp:existing.exp});
   }
 
   return res.status(400).json({error:"Unknown action"});

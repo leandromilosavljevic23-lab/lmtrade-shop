@@ -115,6 +115,12 @@ tr:last-child td{border:none}
           <option value="7">7 Tage (Test)</option>
         </select>
       </div>
+      <div class="fl"><label>Rolle</label>
+        <select id="nr">
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
       <button class="btn" id="cb" onclick="create()">Erstellen</button>
     </div>
     <div class="res" id="cr">
@@ -135,10 +141,10 @@ tr:last-child td{border:none}
     <div class="tbl-wrap">
       <table>
         <thead>
-          <tr><th>Email</th><th>Username</th><th>Passwort</th><th>Erstellt</th><th>Gültig bis</th><th>Status</th><th>Aktionen</th></tr>
+          <tr><th>Email</th><th>Username</th><th>Passwort</th><th>Rolle</th><th>Erstellt</th><th>Gültig bis</th><th>Status</th><th>Aktionen</th></tr>
         </thead>
         <tbody id="ub">
-          <tr><td colspan="7" class="loading">Wird geladen…</td></tr>
+          <tr><td colspan="8" class="loading">Wird geladen…</td></tr>
         </tbody>
       </table>
     </div>
@@ -200,7 +206,8 @@ async function create(){
   const btn=document.getElementById('cb');
   btn.disabled=true;btn.innerHTML='<span style="width:14px;height:14px;border:2px solid rgba(0,0,0,.3);border-top-color:#001;border-radius:50%;display:inline-block;animation:spin .8s linear infinite"></span>';
   try{
-    const r=await fetch(AU+'?action=create',{method:'POST',headers:{'Content-Type':'application/json','X-Admin-Secret':secret},body:JSON.stringify({action:'create',email,days})});
+    const role=document.getElementById('nr').value;
+    const r=await fetch(AU+'?action=create',{method:'POST',headers:{'Content-Type':'application/json','X-Admin-Secret':secret},body:JSON.stringify({action:'create',email,days,role})});
     const d=await r.json();
     if(d.success){
       showResult(d.username,d.password,d.expiresAt,d.emailSent);
@@ -222,14 +229,14 @@ function showResult(u,p,e,sent){
 
 // ── LOAD USERS ──
 async function loadUsers(){
-  document.getElementById('ub').innerHTML='<tr><td colspan="7" class="loading">Lädt von Redis…</td></tr>';
+  document.getElementById('ub').innerHTML='<tr><td colspan="8" class="loading">Lädt von Redis…</td></tr>';
   try{
     const r=await fetch(AU+'?action=list',{headers:{'X-Admin-Secret':secret}});
     const d=await r.json();
-    if(!r.ok){document.getElementById('ub').innerHTML='<tr><td colspan="7" class="empty">Fehler: '+(d.error||r.status)+'</td></tr>';return;}
+    if(!r.ok){document.getElementById('ub').innerHTML='<tr><td colspan="8" class="empty">Fehler: '+(d.error||r.status)+'</td></tr>';return;}
     renderUsers(d.users||[]);
   }catch(e){
-    document.getElementById('ub').innerHTML='<tr><td colspan="7" class="empty">Verbindungsfehler — Upstash Redis konfiguriert?</td></tr>';
+    document.getElementById('ub').innerHTML='<tr><td colspan="8" class="empty">Verbindungsfehler — Upstash Redis konfiguriert?</td></tr>';
   }
 }
 
@@ -242,23 +249,27 @@ function renderUsers(users){
   document.getElementById('se').textContent=expired.length;
 
   if(!users.length){
-    document.getElementById('ub').innerHTML='<tr><td colspan="7" class="empty">Noch keine Kunden. Erstelle oben den ersten Zugang.</td></tr>';
+    document.getElementById('ub').innerHTML='<tr><td colspan="8" class="empty">Noch keine Kunden. Erstelle oben den ersten Zugang.</td></tr>';
     return;
   }
   const sorted=[...users].sort((a,b)=>new Date(b.created||0)-new Date(a.created||0));
   document.getElementById('ub').innerHTML=sorted.map(u=>{
     const ok=u.exp&&new Date(u.exp)>=now;
     const created=u.created?u.created.split('T')[0]:'—';
+    const role=u.role||'user';
+    const roleColor=role==='admin'?'#a855f7':'#00b8d9';
     return `<tr>
       <td>${u.email||'—'}</td>
       <td class="mono" onclick="copyT('${u.username}')" title="Kopieren">${u.username}</td>
       <td class="mono" onclick="copyT('${u.p||''}')" title="Kopieren">${u.p||'—'}</td>
+      <td><span class="badge" style="background:${roleColor}18;color:${roleColor};border:1px solid ${roleColor}40">${role}</span></td>
       <td style="color:#64748b;font-size:12px">${created}</td>
       <td style="color:${ok?'#f59e0b':'#ef4444'};font-size:12px">${u.exp||'—'}</td>
       <td><span class="badge ${ok?'act':'exp'}">${ok?'Aktiv':'Abgelaufen'}</span></td>
       <td>
         <div class="td-actions">
           <button class="btn btn-sm btn-ext" onclick="extendUser('${u.username}')">+ Verlängern</button>
+          <button class="btn btn-sm btn-sec" onclick="changeRole('${u.username}','${role}')">Rolle</button>
           <button class="btn btn-sm btn-del" onclick="deleteUser('${u.username}','${u.email||u.username}')">Löschen</button>
         </div>
       </td>
@@ -276,6 +287,18 @@ async function extendUser(username){
     if(d.success){toast(`✓ ${username} um ${days} Tage verlängert bis ${d.expiresAt}`);loadUsers();}
     else toast('Fehler: '+(d.error||'Unbekannt'),true);
   }catch(e){toast('Verlängerung fehlgeschlagen',true);}
+}
+
+// ── CHANGE ROLE ──
+async function changeRole(username,currentRole){
+  const newRole=currentRole==='admin'?'user':'admin';
+  if(!confirm(`Rolle von "${username}" ändern?\n\n${currentRole} → ${newRole}`))return;
+  try{
+    const r=await fetch(AU+'?action=update',{method:'POST',headers:{'Content-Type':'application/json','X-Admin-Secret':secret},body:JSON.stringify({action:'update',username,role:newRole})});
+    const d=await r.json();
+    if(d.ok){toast(`✓ ${username}: Rolle → ${newRole}`);loadUsers();}
+    else toast('Fehler: '+(d.error||'Unbekannt'),true);
+  }catch(e){toast('Verbindungsfehler',true);}
 }
 
 // ── DELETE ──
