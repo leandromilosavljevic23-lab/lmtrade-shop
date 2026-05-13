@@ -30,7 +30,7 @@ export default async function handler(req,res){
       const user=await kvGet(`user:${username.toLowerCase()}`);
       if(!user||user.p!==password)return res.status(401).json({error:"Ungültige Zugangsdaten"});
       if(user.exp&&user.exp<today)return res.status(403).json({error:"Zugang abgelaufen am "+user.exp});
-      return res.status(200).json({ok:true,username,expiresAt:user.exp||null});
+      return res.status(200).json({ok:true,username,role:user.role||'user',expiresAt:user.exp||null});
     }catch(e){
       return res.status(500).json({error:"Auth-Service nicht erreichbar"});
     }
